@@ -7,24 +7,40 @@ public class AddressBook {
     Scanner input = new Scanner(System.in);
 
     // FUNCTION TO ADD PERSON TO ADDRESS BOOK
-    Person addPerson() {
+    LinkedList<Person> addPerson(LinkedList<Person> addressBook) {
         Person p = new Person();
         System.out.print("Enter First name: ");
         String fname = input.next();
         System.out.print("Enter Last name: ");
         String lname = input.next();
-        System.out.print("Enter Address: ");
-        String address = input.next();
-        System.out.print("Enter City: ");
-        String city = input.next();
-        System.out.print("Enter state: ");
-        String state = input.next();
-        System.out.print("Enter Zip: ");
-        int zip = input.nextInt();
-        System.out.print("Enter phone number: ");
-        String phoneNum = input.next();
-        p.setPerson(fname,lname,address,city,state,zip,phoneNum);
-        return p;
+        if (checkExist(fname,lname,addressBook) == true){
+            System.out.println("Record already exists cant add !!!");
+        } else {
+            System.out.print("Enter Address: ");
+            String address = input.next();
+            System.out.print("Enter City: ");
+            String city = input.next();
+            System.out.print("Enter state: ");
+            String state = input.next();
+            System.out.print("Enter Zip: ");
+            int zip = input.nextInt();
+            System.out.print("Enter phone number: ");
+            String phoneNum = input.next();
+            p.setPerson(fname, lname, address, city, state, zip, phoneNum);
+            addressBook.add(p);
+        }
+        return addressBook;
+    }
+
+    // FUNCTION TO CHECK IF RECORD ALREADY EXISTS OR NOT
+    boolean checkExist(String fname, String lname, LinkedList<Person> addressBook){
+        boolean result = false;
+        for(Person person : addressBook){
+            if(fname.equals(person.getFName()) && lname.equals(person.getLName())){
+                result = true;
+            }
+        }
+        return result;
     }
 
     // FUNCTION TO EDIT PERSON RECORD

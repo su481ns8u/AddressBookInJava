@@ -1,14 +1,12 @@
 package com.su481ns8u.AddressBook;
 
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Scanner;
 
 public class AddressBookMain {
     public static void main(String[] args) {
-        LinkedList<Person> addresssBook = new LinkedList<Person>();
+        LinkedList<Person> addressBook = new LinkedList<Person>();
         AddressBook ab = new AddressBook();
-        Person p;
         Scanner input = new Scanner(System.in);
         System.out.println("Welcome to Address Book !");
         int flag=0;
@@ -23,30 +21,29 @@ public class AddressBookMain {
             int choice = input.nextInt();
             switch (choice){
                 case 1:
-                    p = ab.addPerson();
-                    addresssBook.add(p);
+                    addressBook = ab.addPerson(addressBook);
                     break;
                 case 2:
-                    if(addresssBook.isEmpty()){
+                    if(addressBook.isEmpty()){
                         System.out.println("Address Book is Empty !!!");
                     } else {
-                        for (Person person : addresssBook) {
+                        for (Person person : addressBook) {
                             System.out.println(person.toString());
                         }
                     }
                     break;
                 case 3:
-                    if (addresssBook.isEmpty()){
+                    if (addressBook.isEmpty()){
                         System.out.println("Address Book Empty !!!");
                     } else {
-                        addresssBook = ab.editPerson(addresssBook);
+                        addressBook = ab.editPerson(addressBook);
                     }
                     break;
                 case 4:
-                    if(addresssBook.isEmpty()){
+                    if(addressBook.isEmpty()){
                         System.out.println("Address Book Empty !!!");
                     } else {
-                        addresssBook = ab.deletePerson(addresssBook);
+                        addressBook = ab.deletePerson(addressBook);
                     }
                     break;
                 case 5:
