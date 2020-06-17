@@ -1,7 +1,9 @@
 package com.su481ns8u.AddressBook;
 
 import java.util.LinkedList;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.TreeMap;
 
 public class AddressBook {
     Scanner input = new Scanner(System.in);
@@ -118,5 +120,15 @@ public class AddressBook {
             System.out.println("No Record exists !!!");
         }
         return addressBook;
+    }
+
+    //FUNCTION TO SORT RECORDS BY NAME
+    void sortByName(LinkedList<Person> addressBook){
+        Map<String,Person> sortedAddressBook = new TreeMap<>();
+        for (Person person : addressBook){
+            String fullName = person.getFName()+person.getLName();
+            sortedAddressBook.put(fullName, person);
+        }
+        sortedAddressBook.forEach((k,v)->System.out.println(v.toString()));
     }
 }

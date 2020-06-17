@@ -16,7 +16,8 @@ public class AddressBookMain {
                     "\n2. View Address Book" +
                     "\n3. Edit Record" +
                     "\n4. Delete Person" +
-                    "\n5. Exit" +
+                    "\n5. Sort By Name" +
+                    "\n6. Exit" +
                     "\nChoice: ");
             int choice = input.nextInt();
             switch (choice){
@@ -47,6 +48,13 @@ public class AddressBookMain {
                     }
                     break;
                 case 5:
+                    if (addressBook.isEmpty()){
+                        System.out.println("Address Book is Empty !!!");
+                    } else {
+                        ab.sortByName(addressBook);
+                    }
+                    break;
+                case 6:
                     flag=1;
                     break;
                 default:
