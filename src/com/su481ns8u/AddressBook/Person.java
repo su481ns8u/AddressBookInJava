@@ -3,6 +3,7 @@ package com.su481ns8u.AddressBook;
 import java.util.Scanner;
 
 public class Person {
+    // VARIABLES DECLARATIONS
     private String fname;
     private String lname;
     private String address;
@@ -11,6 +12,7 @@ public class Person {
     private int zip;
     private String phoneNum;
 
+    // ONE WHOLE FUNCTION TO SET PERSON
    void setPerson(String fname, String lname, String address, String city, String state, int zip, String phoneNum){
        this.fname=fname;
        this.lname=lname;
@@ -21,6 +23,7 @@ public class Person {
        this.phoneNum=phoneNum;
    }
 
+   // FUNCTIONS TO SET RECORDS INDIVIDUALLY
    void setFName(String fname){this.fname=fname;}
    void setLName(String lname){this.lname=lname;}
    void setAddress(String address){this.address=address;}
@@ -29,6 +32,7 @@ public class Person {
    void setZip(int zip){this.zip=zip;}
    void setPhoneNum(String phoneNum){this.phoneNum=phoneNum;}
 
+   // FUNCTIONS TO GET RECORDS
    String getFName(){return fname;}
    String getLName(){return lname;}
    String getAddress(){return address;}
@@ -37,6 +41,7 @@ public class Person {
    int getZip(){return zip;}
    String getPhoneNum(){return phoneNum;}
 
+   // FUNCTION TO OUTPUT RECORDS
     @Override
     public String toString(){
         return "\nFirst Name: "+fname+
