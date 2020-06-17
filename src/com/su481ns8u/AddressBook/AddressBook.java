@@ -52,9 +52,9 @@ public class AddressBook {
         System.out.print("Enter Last Name: ");
         String lname = input.next();
         int flag2 = 0;
-        for(Person p : addressBook){
-            System.out.print(p.getFName()+" "+p.getLName());
-            if(fname.equals(p.getFName()) && lname.equals(p.getLName())){
+        for(Person person : addressBook){
+            System.out.print(person.getFName()+" "+person.getLName());
+            if(fname.equals(person.getFName()) && lname.equals(person.getLName())){
                 System.out.println("\nEnter edit choice" +
                         "\n1. Address" +
                         "\n2. City" +
@@ -66,27 +66,27 @@ public class AddressBook {
                     case 1:
                         System.out.print("Enter Updated Address: ");
                         String address = input.next();
-                        p.setAddress(address);
+                        person.setAddress(address);
                         break;
                     case 2:
                         System.out.print("Enter Updated City: ");
                         String city = input.next();
-                        p.setCity(city);
+                        person.setCity(city);
                         break;
                     case 3:
                         System.out.print("Enter Updated State: ");
                         String state = input.next();
-                        p.setState(state);
+                        person.setState(state);
                         break;
                     case 4:
                         System.out.print("Enter Updated Zip: ");
                         int zip = input.nextInt();
-                        p.setZip(zip);
+                        person.setZip(zip);
                         break;
                     case 5:
                         System.out.print("Enter Updated Phone Number: ");
                         String phoneNum = input.next();
-                        p.setPhoneNum(phoneNum);
+                        person.setPhoneNum(phoneNum);
                         break;
                     default:
                         System.out.println("Wrong Choice !!!");
@@ -167,5 +167,40 @@ public class AddressBook {
             viewAddressBook.put(fullAddress, person);
         }
         viewAddressBook.forEach((k,v)->System.out.println(v.toString()));
+    }
+
+    //FUNCTION TO SEARCH BY CITY OR STATE
+    void searchByCityOrState(LinkedList<Person> addressBook){
+        int flag=0;
+        System.out.println("\n\tSearch By" +
+                "\n\t1. City" +
+                "\n\t2. Zip" +
+                "\n\tChoice:");
+        int choice = input.nextInt();
+        switch (choice){
+            case 1:
+                System.out.print("Enter city: ");
+                String city = input.next();
+                for (Person person : addressBook){
+                    if (city.equals(person.getCity())){
+                        System.out.println(person.toString());
+                        flag=1;
+                    }
+                }
+                break;
+            case 2:
+                System.out.print("Enter state: ");
+                String state = input.next();
+                for (Person person : addressBook){
+                    if (state.equals(person.getState())){
+                        System.out.println(person.toString());
+                        flag=1;
+                    }
+                }
+                break;
+        }
+        if (flag == 0){
+            System.out.println("No such city in Address Book !!!");
+        }
     }
 }
