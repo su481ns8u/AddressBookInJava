@@ -17,7 +17,8 @@ public class AddressBookMain {
                     "\n3. Edit Record" +
                     "\n4. Delete Person" +
                     "\n5. Sort By Name" +
-                    "\n6. Exit" +
+                    "\n6. View Records by City and State" +
+                    "\n7. Exit" +
                     "\nChoice: ");
             int choice = input.nextInt();
             switch (choice){
@@ -77,6 +78,13 @@ public class AddressBookMain {
                     }
                     break;
                 case 6:
+                    if(addressBook.isEmpty()){
+                        System.out.println("Address Book is Empty !!!");
+                    } else {
+                        ab.viewByCityAndState(addressBook);
+                    }
+                    break;
+                case 7:
                     flag=1;
                     break;
                 default:

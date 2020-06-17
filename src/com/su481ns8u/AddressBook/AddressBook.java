@@ -158,4 +158,14 @@ public class AddressBook {
         }
         sortedAddressBook.forEach((k,v)->System.out.println(v.toString()));
     }
+
+    //FUNCTION TO GET PEOPLE BY CITY AND STATE TOGETHER
+    void viewByCityAndState(LinkedList<Person> addressBook){
+        Map<String,Person> viewAddressBook = new TreeMap<>();
+        for (Person person : addressBook){
+            String fullAddress = person.getCity()+" "+person.getState();
+            viewAddressBook.put(fullAddress, person);
+        }
+        viewAddressBook.forEach((k,v)->System.out.println(v.toString()));
+    }
 }
