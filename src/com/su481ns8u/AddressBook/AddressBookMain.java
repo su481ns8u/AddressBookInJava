@@ -1,47 +1,38 @@
 package com.su481ns8u.AddressBook;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
 public class AddressBookMain {
     public static void main(String[] args) {
-        List<String> person = new ArrayList<String>();
+        List<Person> addresssBook = new LinkedList<Person>();
+        Person p;
         Scanner input = new Scanner(System.in);
-
         System.out.println("Welcome to Address Book !");
-
-        System.out.print("Enter First name: ");
-        String fname = input.nextLine();
-
-        System.out.print("Enter Last name: ");
-        String lname = input.nextLine();
-
-        System.out.print("Enter Address: ");
-        String address = input.nextLine();
-
-        System.out.print("Enter City: ");
-        String city = input.nextLine();
-
-        System.out.print("Enter state: ");
-        String state = input.nextLine();
-
-        System.out.print("Enter Zip: ");
-        String zip = input.nextLine();
-
-        System.out.print("Enter phone number: ");
-        String phone = input.nextLine();
-
-        person.add(fname);
-        person.add(lname);
-        person.add(address);
-        person.add(city);
-        person.add(state);
-        person.add(zip);
-        person.add(phone);
-
-        for (String str : person){
-            System.out.println(str);
+        int flag=0;
+        while (flag == 0) {
+            System.out.print("\nEnter Choice\n1. Add Person\n2. View Address Book\n3.exit\nChoice: ");
+            int choice = input.nextInt();
+            switch (choice){
+                case 1:
+                    p = new Person();
+                    p.addPerson();
+                    addresssBook.add(p);
+                    break;
+                case 2:
+                    if(addresssBook.isEmpty()){
+                        System.out.println("Address Book is Empty !");
+                    } else {
+                        for (Person person : addresssBook) {
+                            System.out.println(person.toString());
+                        }
+                    }
+                    break;
+                case 3:
+                    flag=1;
+                    break;
+            }
         }
     }
 }
