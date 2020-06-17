@@ -82,4 +82,24 @@ public class AddressBook {
         }
         return addressBook;
     }
+
+    LinkedList<Person> deletePerson(LinkedList<Person> addressBook){
+        System.out.print("Enter First Name to delete record: ");
+        String fname = input.next();
+        System.out.print("Enter Last Name: ");
+        String lname = input.next();
+        int flag=0;
+        for(Person person : addressBook){
+            if(fname.equals(person.getFName()) && lname.equals(person.getLName())){
+                addressBook.remove(person);
+                System.out.println("Deletion Successful !!!");
+                flag=1;
+                break;
+            }
+        }
+        if (flag==0){
+            System.out.println("No Record exists !!!");
+        }
+        return addressBook;
+    }
 }
