@@ -51,7 +51,29 @@ public class AddressBookMain {
                     if (addressBook.isEmpty()){
                         System.out.println("Address Book is Empty !!!");
                     } else {
-                        ab.sortByName(addressBook);
+                        System.out.print("\n\t1. Name" +
+                                "\n\t2. City" +
+                                "\n\t3. State" +
+                                "\n\t4. Zip" +
+                                "\n\tChoice: ");
+                        int choiceForSort = input.nextInt();
+                        switch (choiceForSort){
+                            case 1:
+                                ab.sortByName(addressBook);
+                                break;
+                            case 2:
+                                ab.sortByCity(addressBook);
+                                break;
+                            case 3:
+                                ab.sortByState(addressBook);
+                                break;
+                            case 4:
+                                ab.sortByZip(addressBook);
+                                break;
+                            default:
+                                System.out.println("Invalid choice !!!");
+                                break;
+                        }
                     }
                     break;
                 case 6:

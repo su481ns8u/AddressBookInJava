@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a98096a9-06f7-497c-acd5-c104b8c162bc" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/su481ns8u/AddressBook/AddressBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/su481ns8u/AddressBook/AddressBook.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/su481ns8u/AddressBook/AddressBookMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/su481ns8u/AddressBook/AddressBookMain.java" afterDir="false" />
     </list>
@@ -115,9 +116,9 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="492" y="286" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.738@0.0.1366.738" timestamp="1592410070660" />
-    <state x="339" y="165" key="run.anything.popup" timestamp="1592424773866">
+    <state x="339" y="165" key="run.anything.popup" timestamp="1592427591495">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="339" y="165" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1592424773866" />
+    <state x="339" y="165" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1592427591495" />
   </component>
 </project>

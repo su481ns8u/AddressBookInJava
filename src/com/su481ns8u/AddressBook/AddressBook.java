@@ -131,4 +131,31 @@ public class AddressBook {
         }
         sortedAddressBook.forEach((k,v)->System.out.println(v.toString()));
     }
+
+    //FUNCTION TO SORT RECORDS BY CITY
+    void sortByCity(LinkedList<Person> addressBook){
+        Map<String,Person> sortedAddressBook = new TreeMap<>();
+        for (Person person : addressBook){
+            sortedAddressBook.put(person.getCity(), person);
+        }
+        sortedAddressBook.forEach((k,v)->System.out.println(v.toString()));
+    }
+
+    //FUNCTION TO SORT RECORDS BY STATE
+    void sortByState(LinkedList<Person> addressBook){
+        Map<String,Person> sortedAddressBook = new TreeMap<>();
+        for (Person person : addressBook){
+            sortedAddressBook.put(person.getState(), person);
+        }
+        sortedAddressBook.forEach((k,v)->System.out.println(v.toString()));
+    }
+
+    //FUNCTION TO SORT RECORDS BY ZIP
+    void sortByZip(LinkedList<Person> addressBook){
+        Map<Integer,Person> sortedAddressBook = new TreeMap<>();
+        for (Person person : addressBook){
+            sortedAddressBook.put(person.getZip(), person);
+        }
+        sortedAddressBook.forEach((k,v)->System.out.println(v.toString()));
+    }
 }
