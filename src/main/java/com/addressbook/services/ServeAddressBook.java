@@ -1,8 +1,9 @@
 package com.addressbook.services;
 
+import com.addressbook.enums.SortParameters;
 import com.addressbook.models.Person;
+import com.addressbook.utilities.CheckAndReturnParameters;
 
-import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
@@ -94,10 +95,8 @@ public class ServeAddressBook implements IServeAddressBook {
     }
 
     // Function to sort records on basis of entered parameter
-    public void sortByParameter(LinkedList<Person> addressBook, Comparator comparator) {
-        addressBook.sort(comparator);
-        addressBook.stream().sorted();
-        addressBook.forEach(System.out::println);
+    public void sortByParameter(LinkedList<Person> addressBook, SortParameters sortParameter) {
+        addressBook.stream().sorted(sortParameter.comparator).forEach(System.out::println);
     }
 
     // FUNCTION TO GET PEOPLE BY CITY AND STATE TOGETHER
@@ -134,7 +133,7 @@ public class ServeAddressBook implements IServeAddressBook {
                         .collect(Collectors.toList());
                 break;
         }
-        if (sampleAddressBook.size() == 0) System.out.println("No such city or state in Address Book !!!");
+        if (sampleAddressBook == null) System.out.println("No such city or state in Address Book !!!");
         else sampleAddressBook.forEach(System.out::println);
     }
 }

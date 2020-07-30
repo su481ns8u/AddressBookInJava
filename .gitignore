@@ -24,5 +24,4 @@ hs_err_pid*
 /.idea/
 /AddressBookNew.iml
 /out/
-/.idea/
-/AddressBookNew.iml
+/target/

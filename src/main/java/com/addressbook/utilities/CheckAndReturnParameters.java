@@ -1,4 +1,4 @@
-package com.addressbook.services;
+package com.addressbook.utilities;
 
 import com.addressbook.models.Person;
 
@@ -57,7 +57,7 @@ public class CheckAndReturnParameters {
     }
 
     /* check if name exists in address book */
-    boolean checkExist(String firstName, String lastName, LinkedList<Person> addressBook) {
+    public boolean checkExist(String firstName, String lastName, LinkedList<Person> addressBook) {
         return addressBook.stream().anyMatch(person ->
                 person.getFirstName().equals(firstName) && person.getLastName().equals(lastName));
     }

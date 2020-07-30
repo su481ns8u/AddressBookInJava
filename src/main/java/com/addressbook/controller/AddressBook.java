@@ -3,9 +3,10 @@ package com.addressbook.controller;
 import com.addressbook.models.Person;
 import com.addressbook.services.ServeAddressBook;
 
-import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.Scanner;
+
+import static com.addressbook.enums.SortParameters.*;
 
 /**
  * Main controller class for address book
@@ -57,17 +58,16 @@ public class AddressBook {
                         int choiceForSort = input.nextInt();
                         switch (choiceForSort) {
                             case 1:
-                                serveAddressBook.sortByParameter(addressBook, Comparator.comparing(Person::getFirstName)
-                                        .thenComparing(Person::getLastName));
+                                serveAddressBook.sortByParameter(addressBook, NAME);
                                 break;
                             case 2:
-                                serveAddressBook.sortByParameter(addressBook, Comparator.comparing(Person::getCity));
+                                serveAddressBook.sortByParameter(addressBook, CITY);
                                 break;
                             case 3:
-                                serveAddressBook.sortByParameter(addressBook, Comparator.comparing(Person::getState));
+                                serveAddressBook.sortByParameter(addressBook, STATE);
                                 break;
                             case 4:
-                                serveAddressBook.sortByParameter(addressBook, Comparator.comparing(Person::getZip));
+                                serveAddressBook.sortByParameter(addressBook, ZIP);
                                 break;
                             default:
                                 System.out.println("Invalid choice !!!");
