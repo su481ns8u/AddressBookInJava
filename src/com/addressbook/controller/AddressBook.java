@@ -1,12 +1,11 @@
-package com.su481ns8u.AddressBook.controller;
+package com.addressbook.controller;
 
-import com.su481ns8u.AddressBook.models.Person;
-import com.su481ns8u.AddressBook.services.ServeAddressBook;
+import com.addressbook.models.Person;
+import com.addressbook.services.ServeAddressBook;
 
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.Scanner;
-
 
 /**
  * Main controller class for address book
@@ -14,7 +13,7 @@ import java.util.Scanner;
  */
 public class AddressBook {
     public static void main(String[] args) {
-        LinkedList<Person> addressBook = new LinkedList<Person>();
+        LinkedList<Person> addressBook = new LinkedList<>();
         ServeAddressBook serveAddressBook = new ServeAddressBook();
         Scanner input = new Scanner(System.in);
         System.out.println("Welcome to Address Book !");
@@ -36,30 +35,20 @@ public class AddressBook {
                     addressBook = serveAddressBook.addPerson(addressBook);
                     break;
                 case 2:
-                    if (addressBook.isEmpty()) {
-                        System.out.println("Address Book is Empty !!!");
-                    } else {
-                        addressBook.forEach(System.out::println);
-                    }
+                    if (addressBook.isEmpty()) System.out.println("Address Book is Empty !!!");
+                    else addressBook.forEach(System.out::println);
                     break;
                 case 3:
-                    if (addressBook.isEmpty()) {
-                        System.out.println("Address Book Empty !!!");
-                    } else {
-                        addressBook = serveAddressBook.editPerson(addressBook);
-                    }
+                    if (addressBook.isEmpty()) System.out.println("Address Book Empty !!!");
+                    else addressBook = serveAddressBook.editPerson(addressBook);
                     break;
                 case 4:
-                    if (addressBook.isEmpty()) {
-                        System.out.println("Address Book Empty !!!");
-                    } else {
-                        addressBook = serveAddressBook.deletePerson(addressBook);
-                    }
+                    if (addressBook.isEmpty()) System.out.println("Address Book Empty !!!");
+                    else addressBook = serveAddressBook.deletePerson(addressBook);
                     break;
                 case 5:
-                    if (addressBook.isEmpty()) {
-                        System.out.println("Address Book is Empty !!!");
-                    } else {
+                    if (addressBook.isEmpty()) System.out.println("Address Book is Empty !!!");
+                    else {
                         System.out.print("\n\t1. Name" +
                                 "\n\t2. City" +
                                 "\n\t3. State" +
@@ -87,18 +76,12 @@ public class AddressBook {
                     }
                     break;
                 case 6:
-                    if (addressBook.isEmpty()) {
-                        System.out.println("Address Book is Empty !!!");
-                    } else {
-                        serveAddressBook.searchByCityAndState(addressBook);
-                    }
+                    if (addressBook.isEmpty()) System.out.println("Address Book is Empty !!!");
+                    else serveAddressBook.searchByCityAndState(addressBook);
                     break;
                 case 7:
-                    if (addressBook.isEmpty()) {
-                        System.out.println("Address Book is Empty !!!");
-                    } else {
-                        serveAddressBook.searchByCityOrState(addressBook);
-                    }
+                    if (addressBook.isEmpty()) System.out.println("Address Book is Empty !!!");
+                    else serveAddressBook.searchByCityOrState(addressBook);
                     break;
                 case 8:
                     flag = 1;

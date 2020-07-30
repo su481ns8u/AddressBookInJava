@@ -1,6 +1,6 @@
-package com.su481ns8u.AddressBook.services;
+package com.addressbook.services;
 
-import com.su481ns8u.AddressBook.models.Person;
+import com.addressbook.models.Person;
 
 import java.util.Comparator;
 import java.util.LinkedList;
@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 /**
  * Class for address book services
  */
-public class ServeAddressBook implements IServeAddressBook{
+public class ServeAddressBook implements IServeAddressBook {
     Scanner input = new Scanner(System.in).useDelimiter("\n");
     CheckAndReturnParameters checkAndReturnParameters = new CheckAndReturnParameters();
 
@@ -20,9 +20,9 @@ public class ServeAddressBook implements IServeAddressBook{
         Person person = new Person();
         String firstName = checkAndReturnParameters.setNameParameters("First Name");
         String lastName = checkAndReturnParameters.setNameParameters("Last Name");
-        if (checkAndReturnParameters.checkExist(firstName, lastName, addressBook)) {
+        if (checkAndReturnParameters.checkExist(firstName, lastName, addressBook))
             System.out.println("Record already exists cant add !!!");
-        } else {
+        else {
             String phoneNumber = checkAndReturnParameters.setPhoneNumber();
             String city = checkAndReturnParameters.setNameParameters("City");
             String state = checkAndReturnParameters.setNameParameters("State");
@@ -36,7 +36,7 @@ public class ServeAddressBook implements IServeAddressBook{
 
     // FUNCTION TO EDIT PERSON RECORD
     public LinkedList<Person> editPerson(LinkedList<Person> addressBook) {
-        System.out.print("Enter Name to edit record: ");
+        System.out.print("Enter Name to edit record: \n");
         String firstName = checkAndReturnParameters.setNameParameters("First Name");
         String lastName = checkAndReturnParameters.setNameParameters("Last Name");
         if (checkAndReturnParameters.checkExist(firstName, lastName, addressBook)) {
@@ -73,17 +73,15 @@ public class ServeAddressBook implements IServeAddressBook{
                     break;
                 }
             }
-        } else {
-            System.out.println("Record dose not exist !!!");
-        }
+        } else System.out.println("Record dose not exist !!!");
         return addressBook;
     }
 
     // FUNCTION TO DELETE RECORD FROM THE ADDRESS BOOK
     public LinkedList<Person> deletePerson(LinkedList<Person> addressBook) {
-        System.out.print("Enter name to delete record: ");
+        System.out.println("Enter name to delete record: ");
         String firstName = checkAndReturnParameters.setNameParameters("First Name");
-        String lastName = checkAndReturnParameters.setNameParameters("First Name");
+        String lastName = checkAndReturnParameters.setNameParameters("Last Name");
         int flag = 0;
         if (checkAndReturnParameters.checkExist(firstName, lastName, addressBook)) {
             addressBook.removeIf
@@ -91,18 +89,18 @@ public class ServeAddressBook implements IServeAddressBook{
             System.out.println("Delete Successful !!!");
             flag = 1;
         }
-        if (flag == 0)
-            System.out.println("No Record exists !!!");
+        if (flag == 0) System.out.println("No Record exists !!!");
         return addressBook;
     }
 
     // Function to sort records on basis of entered parameter
     public void sortByParameter(LinkedList<Person> addressBook, Comparator comparator) {
         addressBook.sort(comparator);
+        addressBook.stream().sorted();
         addressBook.forEach(System.out::println);
     }
 
-    //FUNCTION TO GET PEOPLE BY CITY AND STATE TOGETHER
+    // FUNCTION TO GET PEOPLE BY CITY AND STATE TOGETHER
     public void searchByCityAndState(LinkedList<Person> addressBook) {
         System.out.print("Enter city and state to search: ");
         String city = checkAndReturnParameters.setNameParameters("City");
@@ -110,11 +108,8 @@ public class ServeAddressBook implements IServeAddressBook{
         List<Person> sampleAddressBook = addressBook.stream().filter
                 (person -> person.getState().equals(state) && person.getCity().equals(city))
                 .collect(Collectors.toList());
-        if (sampleAddressBook.size() == 0) {
-            System.out.println("No such record exists !!!");
-        } else {
-            sampleAddressBook.forEach(System.out::println);
-        }
+        if (sampleAddressBook.size() == 0) System.out.println("No such record exists !!!");
+        else sampleAddressBook.forEach(System.out::println);
     }
 
     //FUNCTION TO SEARCH BY CITY OR STATE
@@ -139,10 +134,7 @@ public class ServeAddressBook implements IServeAddressBook{
                         .collect(Collectors.toList());
                 break;
         }
-        if (sampleAddressBook.size() == 0) {
-            System.out.println("No such city or state in Address Book !!!");
-        } else {
-            sampleAddressBook.forEach(System.out::println);
-        }
+        if (sampleAddressBook.size() == 0) System.out.println("No such city or state in Address Book !!!");
+        else sampleAddressBook.forEach(System.out::println);
     }
 }

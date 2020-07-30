@@ -1,14 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="a98096a9-06f7-497c-acd5-c104b8c162bc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/su481ns8u/AddressBook/models/Person.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/su481ns8u/AddressBook/services/ServeAddressBook.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/addressbook/services/IServeAddressBook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/su481ns8u/AddressBook/AddressBook.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/su481ns8u/AddressBook/AddressBookMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/su481ns8u/AddressBook/controller/AddressBook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/su481ns8u/AddressBook/Person.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/su481ns8u/AddressBook/controller/AddressBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/addressbook/controller/AddressBook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/su481ns8u/AddressBook/models/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/addressbook/models/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/su481ns8u/AddressBook/services/CheckAndReturnParameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/addressbook/services/CheckAndReturnParameters.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/su481ns8u/AddressBook/services/IServeAddressBook.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/su481ns8u/AddressBook/services/ServeAddressBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/addressbook/services/ServeAddressBook.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,13 +49,13 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../UserRegestrationUsingJUnit" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -49,7 +68,20 @@
       <recent name="com.su481ns8u.AddressBook.models" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.AddressBookMain">
+  <component name="RunManager" selected="Application.AddressBook (1)">
+    <configuration name="AddressBook (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.addressbook.controller.AddressBook" />
+      <module name="AddressBookNew" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.addressbook.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AddressBook" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.su481ns8u.AddressBook.controller.AddressBook" />
       <module name="AddressBookNew" />
@@ -78,7 +110,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.AddressBookMain" />
+        <item itemvalue="Application.AddressBook (1)" />
+        <item itemvalue="Application.AddressBook" />
         <item itemvalue="Application.ServeAddressBook" />
       </list>
     </recent_temporary>
@@ -96,7 +129,22 @@
     </task>
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="WindowStateProjectService">
+    <state x="488" y="85" key="#com.intellij.ide.util.MemberChooser" timestamp="1596124959434">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="488" y="85" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1596124959434" />
     <state x="413" y="149" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1593235626612">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -113,42 +161,42 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="280" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.738@0.0.1366.738" timestamp="1593252930128" />
-    <state x="926" y="139" key="FileChooserDialogImpl" timestamp="1593229064049">
+    <state x="817" y="126" key="FileChooserDialogImpl" timestamp="1593349759097">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="926" y="139" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1593229064049" />
-    <state width="432" height="610" key="GridCell.Tab.0.bottom" timestamp="1593251194639">
+    <state x="817" y="126" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1593349759097" />
+    <state width="414" height="610" key="GridCell.Tab.0.bottom" timestamp="1593369215669">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="432" height="610" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1593251194639" />
-    <state width="432" height="610" key="GridCell.Tab.0.center" timestamp="1593251194639">
+    <state width="414" height="610" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1593369215669" />
+    <state width="414" height="610" key="GridCell.Tab.0.center" timestamp="1593369215668">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="432" height="610" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1593251194639" />
-    <state width="432" height="610" key="GridCell.Tab.0.left" timestamp="1593251194638">
+    <state width="414" height="610" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1593369215668" />
+    <state width="414" height="610" key="GridCell.Tab.0.left" timestamp="1593369215668">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="432" height="610" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1593251194638" />
-    <state width="432" height="610" key="GridCell.Tab.0.right" timestamp="1593251194639">
+    <state width="414" height="610" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1593369215668" />
+    <state width="414" height="610" key="GridCell.Tab.0.right" timestamp="1593369215668">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="432" height="610" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1593251194639" />
+    <state width="414" height="610" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1593369215668" />
     <state x="111" y="15" key="SettingsEditor" timestamp="1593187798433">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="111" y="15" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1593187798433" />
-    <state x="379" y="193" key="com.intellij.ide.util.TipDialog" timestamp="1593227617392">
+    <state x="379" y="193" key="com.intellij.ide.util.TipDialog" timestamp="1593748652194">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="379" y="193" key="com.intellij.ide.util.TipDialog/0.0.1366.738@0.0.1366.738" timestamp="1593227617392" />
+    <state x="379" y="193" key="com.intellij.ide.util.TipDialog/0.0.1366.738@0.0.1366.738" timestamp="1593748652194" />
     <state x="492" y="286" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1592410070660">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="492" y="286" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.738@0.0.1366.738" timestamp="1592410070660" />
-    <state x="339" y="165" key="run.anything.popup" timestamp="1593252951477">
+    <state x="339" y="165" key="run.anything.popup" timestamp="1596126040618">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="339" y="165" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1593252951477" />
+    <state x="339" y="165" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1596126040618" />
     <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1593232603524">
       <screen x="0" y="0" width="1366" height="738" />
     </state>

@@ -1,4 +1,4 @@
-package com.su481ns8u.AddressBook.models;
+package com.addressbook.models;
 
 /**
  * Class to generate and retrieve person
@@ -30,29 +30,8 @@ public class Person {
         this.phoneNumber = phoneNumber;
     }
 
-    // FUNCTIONS TO SET RECORDS INDIVIDUALLY
-    protected void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    protected void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    public void setZip(int zip) {
-        this.zip = zip;
     }
 
     public void setPhoneNumber(String phoneNumber) {
@@ -68,24 +47,28 @@ public class Person {
         return lastName;
     }
 
-    protected String getAddress() {
-        return address;
-    }
-
     public String getCity() {
         return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public String getState() {
         return state;
     }
 
+    public void setState(String state) {
+        this.state = state;
+    }
+
     public int getZip() {
         return zip;
     }
 
-    protected String getPhoneNumber() {
-        return phoneNumber;
+    public void setZip(int zip) {
+        this.zip = zip;
     }
 
     // FUNCTION TO OUTPUT RECORDS
