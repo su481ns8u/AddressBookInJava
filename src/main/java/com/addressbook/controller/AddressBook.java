@@ -2,6 +2,10 @@ package com.addressbook.controller;
 
 import com.addressbook.models.Person;
 import com.addressbook.services.ServeAddressBook;
+import com.addressbook.utilities.GSonOperations;
+import com.addressbook.utilities.JSONSimpleOperations;
+import com.addressbook.utilities.OpenCSVOperations;
+import com.addressbook.utilities.OperationStrategies;
 
 import java.util.LinkedList;
 import java.util.Scanner;
@@ -14,11 +18,32 @@ import static com.addressbook.enums.SortParameters.*;
  */
 public class AddressBook {
     public static void main(String[] args) {
+        final String JSON_SIMPLE_FILE_PATH = "src\\main\\resources\\JSonSimpleAddressBook.json";
+
         LinkedList<Person> addressBook = new LinkedList<>();
         ServeAddressBook serveAddressBook = new ServeAddressBook();
         Scanner input = new Scanner(System.in);
+        OperationStrategies operationStrategies = null;
         System.out.println("Welcome to Address Book !");
         int flag = 0;
+        String filePath = null;
+        System.out.println("Choose read and write technique:" +
+                "1. JSON Simple" +
+                "2. Open CSV" +
+                "3. GSon");
+        int choice = input.nextInt();
+        switch (choice) {
+            case 1:
+                operationStrategies = new JSONSimpleOperations();
+                filePath = JSON_SIMPLE_FILE_PATH;
+                break;
+            case 2:
+                operationStrategies = new OpenCSVOperations();
+                break;
+            case 3:
+                operationStrategies = new GSonOperations();
+                break;
+        }
         while (flag == 0) {
             System.out.print("\nEnter Choice" +
                     "\n1. Add Person" +
@@ -30,24 +55,32 @@ public class AddressBook {
                     "\n7. Search By City or State" +
                     "\n8. Exit" +
                     "\nChoice: ");
-            int choice = input.nextInt();
+            choice = input.nextInt();
             switch (choice) {
                 case 1:
+                    addressBook = operationStrategies.convertToList(filePath);
                     addressBook = serveAddressBook.addPerson(addressBook);
+                    operationStrategies.convertToFile(addressBook, filePath);
                     break;
                 case 2:
+                    addressBook = operationStrategies.convertToList(filePath);
                     if (addressBook.isEmpty()) System.out.println("Address Book is Empty !!!");
                     else addressBook.forEach(System.out::println);
                     break;
                 case 3:
+                    addressBook = operationStrategies.convertToList(filePath);
                     if (addressBook.isEmpty()) System.out.println("Address Book Empty !!!");
                     else addressBook = serveAddressBook.editPerson(addressBook);
+                    operationStrategies.convertToFile(addressBook, filePath);
                     break;
                 case 4:
+                    addressBook = operationStrategies.convertToList(filePath);
                     if (addressBook.isEmpty()) System.out.println("Address Book Empty !!!");
                     else addressBook = serveAddressBook.deletePerson(addressBook);
+                    operationStrategies.convertToFile(addressBook, filePath);
                     break;
                 case 5:
+                    addressBook = operationStrategies.convertToList(filePath);
                     if (addressBook.isEmpty()) System.out.println("Address Book is Empty !!!");
                     else {
                         System.out.print("\n\t1. Name" +
@@ -76,10 +109,12 @@ public class AddressBook {
                     }
                     break;
                 case 6:
+                    addressBook = operationStrategies.convertToList(filePath);
                     if (addressBook.isEmpty()) System.out.println("Address Book is Empty !!!");
                     else serveAddressBook.searchByCityAndState(addressBook);
                     break;
                 case 7:
+                    addressBook = operationStrategies.convertToList(filePath);
                     if (addressBook.isEmpty()) System.out.println("Address Book is Empty !!!");
                     else serveAddressBook.searchByCityOrState(addressBook);
                     break;

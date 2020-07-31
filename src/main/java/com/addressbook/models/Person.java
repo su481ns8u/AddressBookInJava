@@ -71,6 +71,14 @@ public class Person {
         this.zip = zip;
     }
 
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
     // FUNCTION TO OUTPUT RECORDS
     @Override
     public String toString() {
