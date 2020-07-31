@@ -1,20 +1,35 @@
 package com.addressbook.models;
 
+import com.opencsv.bean.CsvBindByName;
+
 /**
  * Class to generate and retrieve person
  */
 public class Person {
     // VARIABLES DECLARATIONS
-    private String firstName;
-    private String lastName;
+    @CsvBindByName(required = true, column = "FIRST NAME")
+    private final String firstName;
+
+    @CsvBindByName(required = true, column = "LAST NAME")
+    private final String lastName;
+
+    @CsvBindByName(required = true, column = "ADDRESS")
     private String address;
+
+    @CsvBindByName(required = true, column = "CITY")
     private String city;
+
+    @CsvBindByName(required = true, column = "STATE")
     private String state;
+
+    @CsvBindByName(required = true, column = "ZIP")
     private int zip;
+
+    @CsvBindByName(required = true, column = "MOBILE NO.")
     private String phoneNumber;
 
     // ONE WHOLE FUNCTION TO SET PERSON
-    public void setPerson(String firstName,
+    public Person(String firstName,
                           String lastName,
                           String address,
                           String city,

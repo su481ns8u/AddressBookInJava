@@ -3,7 +3,6 @@ package com.addressbook.services;
 import com.addressbook.enums.SortParameters;
 import com.addressbook.models.Person;
 import com.addressbook.utilities.CheckAndReturnParameters;
-import com.addressbook.utilities.JSONSimpleOperations;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -19,7 +18,6 @@ public class ServeAddressBook implements IServeAddressBook {
 
     // FUNCTION TO ADD PERSON TO ADDRESS BOOK
     public LinkedList<Person> addPerson(LinkedList<Person> addressBook) {
-        Person person = new Person();
         String firstName = checkAndReturnParameters.setNameParameters("First Name");
         String lastName = checkAndReturnParameters.setNameParameters("Last Name");
         if (checkAndReturnParameters.checkExist(firstName, lastName, addressBook))
@@ -30,7 +28,7 @@ public class ServeAddressBook implements IServeAddressBook {
             String state = checkAndReturnParameters.setNameParameters("State");
             int zip = checkAndReturnParameters.setZip();
             String address = checkAndReturnParameters.setAddress();
-            person.setPerson(firstName, lastName, address, city, state, zip, phoneNumber);
+            Person person = new Person(firstName, lastName, address, city, state, zip, phoneNumber);
             addressBook.add(person);
         }
         return addressBook;

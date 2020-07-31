@@ -20,13 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a98096a9-06f7-497c-acd5-c104b8c162bc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/addressbook/utilities/CSVOperations.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/addressbook/controller/AddressBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/addressbook/controller/AddressBook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/addressbook/models/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/addressbook/models/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/addressbook/services/CheckAndReturnParameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/addressbook/utilities/CheckAndReturnParameters.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/addressbook/services/IServeAddressBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/addressbook/services/IServeAddressBook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/addressbook/services/ServeAddressBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/addressbook/services/ServeAddressBook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AddressBookNew.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AddressBookNew.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/addressbook/controller/AddressBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/addressbook/controller/AddressBook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/addressbook/models/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/addressbook/models/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/addressbook/services/ServeAddressBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/addressbook/services/ServeAddressBook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/addressbook/utilities/JSONSimpleOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/addressbook/utilities/JSONSimpleOperations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/addressbook/utilities/OpenCSVOperations.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/addressbook/utilities/OperationStrategies.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/addressbook/utilities/OperationStrategies.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,9 +39,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
-        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -55,7 +58,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../PracticeProblems/OpenCSVDemo" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -67,6 +70,9 @@
       <recent name="com.su481ns8u.AddressBook.main" />
       <recent name="com.su481ns8u.AddressBook.services" />
       <recent name="com.su481ns8u.AddressBook.models" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.addressbook.utilities" />
     </key>
   </component>
   <component name="RunManager" selected="Application.AddressBook (1)">
@@ -140,20 +146,21 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="163" y="0" key="#Project_Structure" timestamp="1596128675128">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="163" y="0" key="#Project_Structure/0.0.1366.738@0.0.1366.738" timestamp="1596128675128" />
-    <state x="488" y="85" key="#com.intellij.ide.util.MemberChooser" timestamp="1596127803502">
+    <state x="488" y="85" key="#com.intellij.ide.util.MemberChooser" timestamp="1596156631302">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="488" y="85" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1596127803502" />
-    <state x="413" y="149" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1596128045147">
+    <state x="488" y="85" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1596156631302" />
+    <state x="413" y="149" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1596156622869">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="413" y="149" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1366.738@0.0.1366.738" timestamp="1596128045147" />
+    <state x="413" y="149" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1366.738@0.0.1366.738" timestamp="1596156622869" />
     <state x="406" y="58" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1596128595675">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -166,30 +173,46 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="399" y="87" key="#com.intellij.refactoring.move.moveMembers.MoveMembersDialog/0.0.1366.738@0.0.1366.738" timestamp="1593228051958" />
-    <state x="280" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1593252930128">
+    <state x="280" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1596155348350">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="280" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.738@0.0.1366.738" timestamp="1593252930128" />
-    <state x="817" y="126" key="FileChooserDialogImpl" timestamp="1593349759097">
+    <state x="280" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.738@0.0.1366.738" timestamp="1596155348350" />
+    <state x="817" y="126" key="FileChooserDialogImpl" timestamp="1596163357965">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="817" y="126" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1593349759097" />
-    <state width="1323" height="452" key="GridCell.Tab.0.bottom" timestamp="1596127393676">
+    <state x="817" y="126" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1596163357965" />
+    <state width="1323" height="452" key="GridCell.Tab.0.bottom" timestamp="1596165665473">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="452" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1596127393676" />
-    <state width="1323" height="452" key="GridCell.Tab.0.center" timestamp="1596127393676">
+    <state width="1323" height="452" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1596165665473" />
+    <state width="1323" height="452" key="GridCell.Tab.0.center" timestamp="1596165665473">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="452" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1596127393676" />
-    <state width="1323" height="452" key="GridCell.Tab.0.left" timestamp="1596127393676">
+    <state width="1323" height="452" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1596165665473" />
+    <state width="1323" height="452" key="GridCell.Tab.0.left" timestamp="1596165665473">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="452" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1596127393676" />
-    <state width="1323" height="452" key="GridCell.Tab.0.right" timestamp="1596127393676">
+    <state width="1323" height="452" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1596165665473" />
+    <state width="1323" height="452" key="GridCell.Tab.0.right" timestamp="1596165665473">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="452" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1596127393676" />
+    <state width="1323" height="452" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1596165665473" />
+    <state width="1323" height="227" key="GridCell.Tab.1.bottom" timestamp="1596165503895">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="227" key="GridCell.Tab.1.bottom/0.0.1366.738@0.0.1366.738" timestamp="1596165503895" />
+    <state width="1323" height="227" key="GridCell.Tab.1.center" timestamp="1596165503895">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="227" key="GridCell.Tab.1.center/0.0.1366.738@0.0.1366.738" timestamp="1596165503895" />
+    <state width="1323" height="227" key="GridCell.Tab.1.left" timestamp="1596165503895">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="227" key="GridCell.Tab.1.left/0.0.1366.738@0.0.1366.738" timestamp="1596165503895" />
+    <state width="1323" height="227" key="GridCell.Tab.1.right" timestamp="1596165503895">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="227" key="GridCell.Tab.1.right/0.0.1366.738@0.0.1366.738" timestamp="1596165503895" />
     <state x="111" y="0" key="SettingsEditor" timestamp="1596128562779">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -202,13 +225,18 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="492" y="286" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.738@0.0.1366.738" timestamp="1592410070660" />
-    <state x="339" y="165" key="run.anything.popup" timestamp="1596126040618">
+    <state x="339" y="165" key="run.anything.popup" timestamp="1596132401205">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="339" y="165" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1596126040618" />
+    <state x="339" y="165" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1596132401205" />
     <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1593232603524">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1593232603524" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/AddressBookNew$AddressBook__1_.ic" NAME="AddressBook (1) Coverage Results" MODIFIED="1596165378055" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.addressbook.controller.*</FILTER>
+    </SUITE>
   </component>
 </project>

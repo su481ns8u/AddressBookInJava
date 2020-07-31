@@ -2,11 +2,12 @@ package com.addressbook.controller;
 
 import com.addressbook.models.Person;
 import com.addressbook.services.ServeAddressBook;
-import com.addressbook.utilities.GSonOperations;
+import com.addressbook.utilities.CSVOperations;
 import com.addressbook.utilities.JSONSimpleOperations;
-import com.addressbook.utilities.OpenCSVOperations;
+import com.addressbook.utilities.GSonOperations;
 import com.addressbook.utilities.OperationStrategies;
 
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -17,20 +18,21 @@ import static com.addressbook.enums.SortParameters.*;
  * Program Execution starts from here
  */
 public class AddressBook {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         final String JSON_SIMPLE_FILE_PATH = "src\\main\\resources\\JSonSimpleAddressBook.json";
+        final String OPEN_CSV_FILE_PATH = "src\\main\\resources\\CSVAddressBook.csv";
 
-        LinkedList<Person> addressBook = new LinkedList<>();
+        LinkedList<Person> addressBook;
         ServeAddressBook serveAddressBook = new ServeAddressBook();
         Scanner input = new Scanner(System.in);
         OperationStrategies operationStrategies = null;
         System.out.println("Welcome to Address Book !");
         int flag = 0;
         String filePath = null;
-        System.out.println("Choose read and write technique:" +
-                "1. JSON Simple" +
-                "2. Open CSV" +
-                "3. GSon");
+        System.out.println("\nChoose read and write technique:" +
+                "\n1. JSON Simple" +
+                "\n2. Open CSV" +
+                "\n3. GSon");
         int choice = input.nextInt();
         switch (choice) {
             case 1:
@@ -38,7 +40,8 @@ public class AddressBook {
                 filePath = JSON_SIMPLE_FILE_PATH;
                 break;
             case 2:
-                operationStrategies = new OpenCSVOperations();
+                operationStrategies = new CSVOperations();
+                filePath = OPEN_CSV_FILE_PATH;
                 break;
             case 3:
                 operationStrategies = new GSonOperations();

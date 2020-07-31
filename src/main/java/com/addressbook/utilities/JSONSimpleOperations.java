@@ -6,12 +6,10 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.LinkedList;
-import java.util.List;
 
 public class JSONSimpleOperations implements OperationStrategies{
     @Override
@@ -58,15 +56,13 @@ public class JSONSimpleOperations implements OperationStrategies{
 
     private Person parsePersonObject(JSONObject personJson) {
         JSONObject personObj = (JSONObject) personJson.get("person");
-        Person person = new Person();
         Long zip = (Long) personObj.get("Zip");
-        person.setPerson((String) personObj.get("First Name"),
+        return new Person((String) personObj.get("First Name"),
                 (String) personObj.get("Last Name"),
                 (String) personObj.get("Address"),
                 (String) personObj.get("City"),
                 (String) personObj.get("State"),
                 zip.intValue(),
                 (String) personObj.get("Mobile No."));
-        return person;
     }
 }
