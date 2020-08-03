@@ -12,6 +12,7 @@ import java.util.LinkedList;
 import java.util.Scanner;
 
 import static com.addressbook.enums.SortParameters.*;
+import static java.lang.System.exit;
 
 /**
  * Main controller class for address book
@@ -21,18 +22,20 @@ public class AddressBook {
     public static void main(String[] args) throws IOException {
         final String JSON_SIMPLE_FILE_PATH = "src\\main\\resources\\JSonSimpleAddressBook.json";
         final String OPEN_CSV_FILE_PATH = "src\\main\\resources\\CSVAddressBook.csv";
+        final String GSon_FILE_PATH = "src\\main\\resources\\GSonAddressBook.json";
 
-        LinkedList<Person> addressBook;
+        LinkedList<Person> addressBook = new LinkedList<>();
         ServeAddressBook serveAddressBook = new ServeAddressBook();
         Scanner input = new Scanner(System.in);
         OperationStrategies operationStrategies = null;
         System.out.println("Welcome to Address Book !");
         int flag = 0;
         String filePath = null;
-        System.out.println("\nChoose read and write technique:" +
+        System.out.print("\nChoose read and write technique:" +
                 "\n1. JSON Simple" +
                 "\n2. Open CSV" +
-                "\n3. GSon");
+                "\n3. GSon" +
+                "\n Choice: ");
         int choice = input.nextInt();
         switch (choice) {
             case 1:
@@ -45,7 +48,10 @@ public class AddressBook {
                 break;
             case 3:
                 operationStrategies = new GSonOperations();
+                filePath = GSon_FILE_PATH;
                 break;
+            default:
+                exit(0);
         }
         while (flag == 0) {
             System.out.print("\nEnter Choice" +

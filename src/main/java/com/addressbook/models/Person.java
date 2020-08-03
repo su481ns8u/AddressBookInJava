@@ -2,6 +2,8 @@ package com.addressbook.models;
 
 import com.opencsv.bean.CsvBindByName;
 
+import java.util.Objects;
+
 /**
  * Class to generate and retrieve person
  */
@@ -30,26 +32,18 @@ public class Person {
 
     // ONE WHOLE FUNCTION TO SET PERSON
     public Person(String firstName,
-                          String lastName,
-                          String address,
-                          String city,
-                          String state,
-                          int zip,
-                          String phoneNumber) {
+                  String lastName,
+                  String address,
+                  String city,
+                  String state,
+                  int zip,
+                  String phoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
         this.city = city;
         this.state = state;
         this.zip = zip;
-        this.phoneNumber = phoneNumber;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -90,8 +84,16 @@ public class Person {
         return phoneNumber;
     }
 
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
     public String getAddress() {
         return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     // FUNCTION TO OUTPUT RECORDS
@@ -104,5 +106,14 @@ public class Person {
                 "\tState: " + state +
                 "\tZip: " + zip +
                 "\nPhone Number: " + phoneNumber;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return Objects.equals(firstName, person.firstName) &&
+                Objects.equals(lastName, person.lastName);
     }
 }

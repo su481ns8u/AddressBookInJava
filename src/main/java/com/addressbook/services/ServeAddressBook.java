@@ -40,7 +40,7 @@ public class ServeAddressBook implements IServeAddressBook {
         String firstName = checkAndReturnParameters.setNameParameters("First Name");
         String lastName = checkAndReturnParameters.setNameParameters("Last Name");
         if (checkAndReturnParameters.checkExist(firstName, lastName, addressBook)) {
-            for (Person person : addressBook) {
+            for (Person person : addressBook)
                 if (firstName.equals(person.getFirstName()) && lastName.equals(person.getLastName())) {
                     System.out.print("\n\tEnter edit choice" +
                             "\n\t1. Address" +
@@ -72,7 +72,6 @@ public class ServeAddressBook implements IServeAddressBook {
                     System.out.println("Update Successful !!!");
                     break;
                 }
-            }
         } else System.out.println("Record dose not exist !!!");
         return addressBook;
     }
