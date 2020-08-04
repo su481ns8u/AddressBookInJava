@@ -14,17 +14,13 @@ import java.util.Scanner;
 import static com.addressbook.enums.SortParameters.*;
 import static java.lang.System.exit;
 
-/**
- * Main controller class for address book
- * Program Execution starts from here
- */
 public class AddressBook {
     public static void main(String[] args) throws IOException {
         final String JSON_SIMPLE_FILE_PATH = "src\\main\\resources\\JSonSimpleAddressBook.json";
         final String OPEN_CSV_FILE_PATH = "src\\main\\resources\\CSVAddressBook.csv";
         final String GSon_FILE_PATH = "src\\main\\resources\\GSonAddressBook.json";
 
-        LinkedList<Person> addressBook = new LinkedList<>();
+        LinkedList<Person> addressBook;
         ServeAddressBook serveAddressBook = new ServeAddressBook();
         Scanner input = new Scanner(System.in);
         OperationStrategies operationStrategies = null;

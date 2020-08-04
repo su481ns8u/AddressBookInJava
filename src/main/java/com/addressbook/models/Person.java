@@ -30,6 +30,10 @@ public class Person {
     @CsvBindByName(required = true, column = "MOBILE NO.")
     private String phoneNumber;
 
+    public Person(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
     // ONE WHOLE FUNCTION TO SET PERSON
     public Person(String firstName,
                   String lastName,
