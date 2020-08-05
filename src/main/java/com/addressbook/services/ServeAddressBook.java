@@ -3,17 +3,18 @@ package com.addressbook.services;
 import com.addressbook.enums.SortParameters;
 import com.addressbook.models.Person;
 import com.addressbook.utilities.AddressBookUtils;
-import com.addressbook.utilities.CheckAndReturnParameters;
 
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
+import static com.addressbook.enums.SortParameters.*;
+import static com.addressbook.enums.SortParameters.ZIP;
+import static com.addressbook.utilities.AddressBookUtils.checkAndReturnParameters;
+
 public class ServeAddressBook implements IServeAddressBook {
-    Scanner input = new Scanner(System.in).useDelimiter("\n");
     AddressBookUtils addressBookUtils = new AddressBookUtils();
-    CheckAndReturnParameters checkAndReturnParameters = new CheckAndReturnParameters();
 
     public LinkedList<Person> addPerson(LinkedList<Person> addressBook) {
         Person person = addressBookUtils.setName();
@@ -50,6 +51,33 @@ public class ServeAddressBook implements IServeAddressBook {
         addressBook.stream().sorted(sortParameter.comparator).forEach(System.out::println);
     }
 
+    public void sort(LinkedList <Person> addressBook) {
+        System.out.print("\n\t1. Name" +
+                "\n\t2. City" +
+                "\n\t3. State" +
+                "\n\t4. Zip" +
+                "\n\tChoice: ");
+        Scanner input = new Scanner(System.in);
+        int choiceForSort = input.nextInt();
+        switch (choiceForSort) {
+            case 1:
+                this.sortByParameter(addressBook, NAME);
+                break;
+            case 2:
+                this.sortByParameter(addressBook, CITY);
+                break;
+            case 3:
+                this.sortByParameter(addressBook, STATE);
+                break;
+            case 4:
+                this.sortByParameter(addressBook, ZIP);
+                break;
+            default:
+                System.out.println("Invalid choice !!!");
+                break;
+        }
+    }
+
     public void searchByCityAndState(LinkedList<Person> addressBook) {
         System.out.print("Enter city and state to search: ");
         String city = checkAndReturnParameters.setNameParameters("City");
@@ -67,6 +95,7 @@ public class ServeAddressBook implements IServeAddressBook {
                 "\n\t1. City" +
                 "\n\t2. Zip" +
                 "\n\tChoice:");
+        Scanner input = new Scanner(System.in);
         int choice = input.nextInt();
         switch (choice) {
             case 1:

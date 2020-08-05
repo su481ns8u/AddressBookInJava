@@ -25,7 +25,7 @@ public class Person {
     private String state;
 
     @CsvBindByName(required = true, column = "ZIP")
-    private int zip;
+    private String zip;
 
     @CsvBindByName(required = true, column = "MOBILE NO.")
     private String phoneNumber;
@@ -40,7 +40,7 @@ public class Person {
                   String address,
                   String city,
                   String state,
-                  int zip,
+                  String zip,
                   String phoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -76,11 +76,11 @@ public class Person {
         this.state = state;
     }
 
-    public int getZip() {
+    public String getZip() {
         return zip;
     }
 
-    public void setZip(int zip) {
+    public void setZip(String zip) {
         this.zip = zip;
     }
 

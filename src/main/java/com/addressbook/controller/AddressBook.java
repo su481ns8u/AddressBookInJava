@@ -3,15 +3,14 @@ package com.addressbook.controller;
 import com.addressbook.models.Person;
 import com.addressbook.services.ServeAddressBook;
 import com.addressbook.utilities.CSVOperations;
-import com.addressbook.utilities.JSONSimpleOperations;
 import com.addressbook.utilities.GSonOperations;
+import com.addressbook.utilities.JSONSimpleOperations;
 import com.addressbook.utilities.OperationStrategies;
 
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Scanner;
 
-import static com.addressbook.enums.SortParameters.*;
 import static java.lang.System.exit;
 
 public class AddressBook {
@@ -20,12 +19,11 @@ public class AddressBook {
         final String OPEN_CSV_FILE_PATH = "src\\main\\resources\\CSVAddressBook.csv";
         final String GSon_FILE_PATH = "src\\main\\resources\\GSonAddressBook.json";
 
-        LinkedList<Person> addressBook;
+        LinkedList<Person> addressBook = new LinkedList<>();
         ServeAddressBook serveAddressBook = new ServeAddressBook();
         Scanner input = new Scanner(System.in);
         OperationStrategies operationStrategies = null;
         System.out.println("Welcome to Address Book !");
-        int flag = 0;
         String filePath = null;
         System.out.print("\nChoose read and write technique:" +
                 "\n1. JSON Simple" +
@@ -49,7 +47,7 @@ public class AddressBook {
             default:
                 exit(0);
         }
-        while (flag == 0) {
+        while (true) {
             System.out.print("\nEnter Choice" +
                     "\n1. Add Person" +
                     "\n2. View Address Book" +
@@ -87,31 +85,7 @@ public class AddressBook {
                 case 5:
                     addressBook = operationStrategies.convertToList(filePath);
                     if (addressBook.isEmpty()) System.out.println("Address Book is Empty !!!");
-                    else {
-                        System.out.print("\n\t1. Name" +
-                                "\n\t2. City" +
-                                "\n\t3. State" +
-                                "\n\t4. Zip" +
-                                "\n\tChoice: ");
-                        int choiceForSort = input.nextInt();
-                        switch (choiceForSort) {
-                            case 1:
-                                serveAddressBook.sortByParameter(addressBook, NAME);
-                                break;
-                            case 2:
-                                serveAddressBook.sortByParameter(addressBook, CITY);
-                                break;
-                            case 3:
-                                serveAddressBook.sortByParameter(addressBook, STATE);
-                                break;
-                            case 4:
-                                serveAddressBook.sortByParameter(addressBook, ZIP);
-                                break;
-                            default:
-                                System.out.println("Invalid choice !!!");
-                                break;
-                        }
-                    }
+                    else serveAddressBook.sort(addressBook);
                     break;
                 case 6:
                     addressBook = operationStrategies.convertToList(filePath);
@@ -124,7 +98,7 @@ public class AddressBook {
                     else serveAddressBook.searchByCityOrState(addressBook);
                     break;
                 case 8:
-                    flag = 1;
+                    exit(0);
                     break;
                 default:
                     System.out.println("Invalid Choice !!!");

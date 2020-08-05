@@ -30,7 +30,7 @@ public class CSVOperations implements OperationStrategies {
                         nextPerson[0],
                         nextPerson[1],
                         nextPerson[5],
-                        Integer.parseInt(nextPerson[6]),
+                        nextPerson[6],
                         nextPerson[4]));
             }
             return addressBook;

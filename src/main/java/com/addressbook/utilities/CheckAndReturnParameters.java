@@ -35,10 +35,10 @@ public class CheckAndReturnParameters {
     }
 
     /* Set Zip */
-    public int setZip() {
+    public String setZip() {
         System.out.print("Enter Zip: ");
         String zip = input.next();
-        if (zip.matches("^[1-9][0-9]{5,}$")) return Integer.parseInt(zip);
+        if (zip.matches("^[1-9][0-9]{5,}$")) return zip;
         else {
             System.out.println("Invalid zip enter again");
             return setZip();
@@ -54,11 +54,5 @@ public class CheckAndReturnParameters {
             System.out.println("Invalid phone number enter again");
             return setPhoneNumber();
         }
-    }
-
-    /* check if name exists in address book */
-    public boolean checkExist(String firstName, String lastName, LinkedList<Person> addressBook) {
-        return addressBook.stream().anyMatch(person ->
-                person.getFirstName().equals(firstName) && person.getLastName().equals(lastName));
     }
 }

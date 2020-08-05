@@ -56,13 +56,12 @@ public class JSONSimpleOperations implements OperationStrategies{
 
     private Person parsePersonObject(JSONObject personJson) {
         JSONObject personObj = (JSONObject) personJson.get("person");
-        Long zip = (Long) personObj.get("Zip");
         return new Person((String) personObj.get("First Name"),
                 (String) personObj.get("Last Name"),
                 (String) personObj.get("Address"),
                 (String) personObj.get("City"),
                 (String) personObj.get("State"),
-                zip.intValue(),
+                (String) personObj.get("Zip"),
                 (String) personObj.get("Mobile No."));
     }
 }

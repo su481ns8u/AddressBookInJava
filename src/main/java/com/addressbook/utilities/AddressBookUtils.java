@@ -5,8 +5,7 @@ import com.addressbook.models.Person;
 import java.util.Scanner;
 
 public class AddressBookUtils {
-    CheckAndReturnParameters checkAndReturnParameters = new CheckAndReturnParameters();
-    Scanner scanner = new Scanner(System.in);
+    public static final CheckAndReturnParameters checkAndReturnParameters = new CheckAndReturnParameters();
 
     public Person setName () {
         return new Person(checkAndReturnParameters.setNameParameters("First Name"),
@@ -29,6 +28,7 @@ public class AddressBookUtils {
                 "\n\t4. Zip" +
                 "\n\t5. Phone Number" +
                 "\n\tChoice");
+        Scanner scanner = new Scanner(System.in);
         int choice = scanner.nextInt();
         switch (choice) {
             case 1:

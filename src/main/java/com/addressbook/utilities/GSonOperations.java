@@ -2,6 +2,7 @@ package com.addressbook.utilities;
 
 import com.addressbook.models.Person;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -25,10 +26,9 @@ public class GSonOperations implements OperationStrategies {
 
     @Override
     public void convertToFile(LinkedList<Person> addressBook, String filePath) {
-        String jsonString = new Gson().toJson(addressBook);
-        try {
-            FileWriter writer = new FileWriter(filePath);
-            writer.write(jsonString);
+        try (FileWriter writer = new FileWriter(filePath)){
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            gson.toJson(addressBook, writer);
         } catch (IOException e) {
             e.printStackTrace();
         }
