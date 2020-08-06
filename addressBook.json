@@ -1,0 +1,24 @@
+{
+  "person": [
+    {
+      "firstName": "Shashank",
+      "lastName": "Ghinmine",
+      "address": "Kesha",
+      "city": "Akola",
+      "state": "Maha",
+      "zip": "465789",
+      "phoneNumber": "91 8551973494",
+      "id": 3
+    },
+    {
+      "firstName": "Snehal",
+      "lastName": "Ghinmine",
+      "address": "Nashir",
+      "city": "Selu",
+      "state": "Maha",
+      "zip": "465798",
+      "phoneNumber": "91 8007928757",
+      "id": 4
+    }
+  ]
+}

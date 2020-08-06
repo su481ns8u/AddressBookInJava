@@ -11,6 +11,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.LinkedList;
 
+@SuppressWarnings("ALL")
 public class JSONSimpleOperations implements OperationStrategies{
     @Override
     public void convertToFile(LinkedList<Person> addressBook, String jsonPath) {

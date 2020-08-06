@@ -1,109 +1,31 @@
 package com.addressbook.controller;
 
-import com.addressbook.models.Person;
-import com.addressbook.services.ServeAddressBook;
-import com.addressbook.utilities.CSVOperations;
-import com.addressbook.utilities.GSonOperations;
-import com.addressbook.utilities.JSONSimpleOperations;
-import com.addressbook.utilities.OperationStrategies;
+import com.addressbook.services.AddressBookServiceDBIO;
+import com.addressbook.services.AddressBookServiceFileIO;
+import com.addressbook.services.AddressBookServiceJsonServerIO;
 
-import java.io.IOException;
-import java.util.LinkedList;
 import java.util.Scanner;
 
 import static java.lang.System.exit;
 
 public class AddressBook {
-    public static void main(String[] args) throws IOException {
-        final String JSON_SIMPLE_FILE_PATH = "src\\main\\resources\\JSonSimpleAddressBook.json";
-        final String OPEN_CSV_FILE_PATH = "src\\main\\resources\\CSVAddressBook.csv";
-        final String GSon_FILE_PATH = "src\\main\\resources\\GSonAddressBook.json";
-
-        LinkedList<Person> addressBook = new LinkedList<>();
-        ServeAddressBook serveAddressBook = new ServeAddressBook();
+    public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        OperationStrategies operationStrategies = null;
-        System.out.println("Welcome to Address Book !");
-        String filePath = null;
-        System.out.print("\nChoose read and write technique:" +
-                "\n1. JSON Simple" +
-                "\n2. Open CSV" +
-                "\n3. GSon" +
-                "\n Choice: ");
+        System.out.println("Enter Choice to select method:" +
+                "\n1. Using File IO" +
+                "\n2.Using Json-server IO" +
+                "\n3. Using Data Base IO");
         int choice = input.nextInt();
         switch (choice) {
             case 1:
-                operationStrategies = new JSONSimpleOperations();
-                filePath = JSON_SIMPLE_FILE_PATH;
-                break;
+                new AddressBookServiceFileIO();
             case 2:
-                operationStrategies = new CSVOperations();
-                filePath = OPEN_CSV_FILE_PATH;
-                break;
+                new AddressBookServiceJsonServerIO();
             case 3:
-                operationStrategies = new GSonOperations();
-                filePath = GSon_FILE_PATH;
-                break;
+                new AddressBookServiceDBIO();
             default:
+                System.out.println("Invalid Choice !");
                 exit(0);
-        }
-        while (true) {
-            System.out.print("\nEnter Choice" +
-                    "\n1. Add Person" +
-                    "\n2. View Address Book" +
-                    "\n3. Edit Record" +
-                    "\n4. Delete Person" +
-                    "\n5. Sort" +
-                    "\n6. Search by City and State" +
-                    "\n7. Search By City or State" +
-                    "\n8. Exit" +
-                    "\nChoice: ");
-            choice = input.nextInt();
-            switch (choice) {
-                case 1:
-                    addressBook = operationStrategies.convertToList(filePath);
-                    addressBook = serveAddressBook.addPerson(addressBook);
-                    operationStrategies.convertToFile(addressBook, filePath);
-                    break;
-                case 2:
-                    addressBook = operationStrategies.convertToList(filePath);
-                    if (addressBook.isEmpty()) System.out.println("Address Book is Empty !!!");
-                    else addressBook.forEach(System.out::println);
-                    break;
-                case 3:
-                    addressBook = operationStrategies.convertToList(filePath);
-                    if (addressBook.isEmpty()) System.out.println("Address Book Empty !!!");
-                    else addressBook = serveAddressBook.editPerson(addressBook);
-                    operationStrategies.convertToFile(addressBook, filePath);
-                    break;
-                case 4:
-                    addressBook = operationStrategies.convertToList(filePath);
-                    if (addressBook.isEmpty()) System.out.println("Address Book Empty !!!");
-                    else addressBook = serveAddressBook.deletePerson(addressBook);
-                    operationStrategies.convertToFile(addressBook, filePath);
-                    break;
-                case 5:
-                    addressBook = operationStrategies.convertToList(filePath);
-                    if (addressBook.isEmpty()) System.out.println("Address Book is Empty !!!");
-                    else serveAddressBook.sort(addressBook);
-                    break;
-                case 6:
-                    addressBook = operationStrategies.convertToList(filePath);
-                    if (addressBook.isEmpty()) System.out.println("Address Book is Empty !!!");
-                    else serveAddressBook.searchByCityAndState(addressBook);
-                    break;
-                case 7:
-                    addressBook = operationStrategies.convertToList(filePath);
-                    if (addressBook.isEmpty()) System.out.println("Address Book is Empty !!!");
-                    else serveAddressBook.searchByCityOrState(addressBook);
-                    break;
-                case 8:
-                    exit(0);
-                    break;
-                default:
-                    System.out.println("Invalid Choice !!!");
-                    break;
-            }
         }
     }
 }

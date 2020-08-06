@@ -18,9 +18,9 @@ public class GSonOperations implements OperationStrategies {
             Person[] addressBook = new Gson().fromJson(new FileReader(filePath), Person[].class);
             if (addressBook.length == 0) return address;
             address.addAll(Arrays.asList(addressBook));
-        } catch (IOException | NullPointerException e) {
+        } catch (IOException e) {
             e.printStackTrace();
-        }
+        } catch (ArrayIndexOutOfBoundsException |  NullPointerException ignored) {}
         return address;
     }
 

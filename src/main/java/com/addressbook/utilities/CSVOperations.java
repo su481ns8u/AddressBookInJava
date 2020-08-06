@@ -15,6 +15,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.LinkedList;
 
+@SuppressWarnings("ALL")
 public class CSVOperations implements OperationStrategies {
     @Override
     public LinkedList<Person> convertToList(String filePath) throws IOException {
@@ -25,7 +26,8 @@ public class CSVOperations implements OperationStrategies {
             LinkedList<Person> addressBook = new LinkedList<>();
             String[] nextPerson = csvReader.readNext();
             while ((nextPerson = csvReader.readNext()) != null) {
-                addressBook.add(new Person(nextPerson[2],
+                addressBook.add(new Person(
+                        nextPerson[2],
                         nextPerson[3],
                         nextPerson[0],
                         nextPerson[1],

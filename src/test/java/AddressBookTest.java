@@ -1,18 +1,42 @@
 import io.restassured.http.ContentType;
-import org.junit.Assert;
+import io.restassured.response.Response;
+import org.junit.Before;
 import org.junit.Test;
 
-import static io.restassured.RestAssured.given;
-import static io.restassured.RestAssured.when;
+import java.util.ArrayList;
+import java.util.List;
+
+import static io.restassured.RestAssured.*;
 
 public class AddressBookTest {
+    @Before
+    public void setUp() throws Exception {
+        baseURI = "http://localhost:3000/person/";
+    }
+
     @Test
     public void givenIDAndURLOfApi_UsingRestAssured_ShouldReturnPassingStatusCode() {
-        int statusCode = given().queryParam("id", 1)
+//        given().queryParam("firstName", "S")
+//                .get("/person/?firstName="+"S")
+//                .then()
+//                .statusCode(200)
+//                .log().all();
+
+        Response response = (Response) given().header("Content-Type", "application/json")
+                .contentType(ContentType.JSON)
+                .accept(ContentType.JSON)
                 .when()
-                .get("https://my-json-server.typicode.com/su481ns8u/AddressBookSampleDB/person")
-                .getStatusCode();
-        Assert.assertEquals(200, statusCode);
+                .get("")
+                .then()
+                .extract()
+                .body();
+        ArrayList<Object> list = (ArrayList<Object>) given().header("Content-Type", "application/json")
+                .contentType(ContentType.JSON)
+                .accept(ContentType.JSON)
+                .when().get().then().extract().response().jsonPath().getList("$");
+        int size = response.jsonPath().getList("id").size();
+        list.forEach(a -> System.out.println(a.toString()));
+        System.out.println(list);
     }
 
     @Test
@@ -20,10 +44,19 @@ public class AddressBookTest {
         given()
                 .contentType(ContentType.JSON)
                 .accept(ContentType.JSON)
-                .body("{\"FirstName\": \"Shashank\", \"LastName\": \"Ghinmine\", \"Mobile\": \"91 9822917991\", " +
-                        "\"Address\": \"Kesha\", \"City\": \"Selu\",\"State\": \"Maha\",\"Zip\": \"465231\"}")
+                .header("Content-Type", "application/json")
+                .body("{\n" +
+                        "      \"firstName\": \"Shashank\"," +
+                        "      \"lastName\": \"Ghinmine\"," +
+                        "      \"address\": \"Murtiza\"," +
+                        "      \"city\": \"Amrawati\"," +
+                        "      \"state\": \"Maha\"," +
+                        "      \"zip\": \"431654\"," +
+                        "      \"phoneNumber\": \"91 9822917991\"" +
+                        "    }")
                 .when()
-                .post("https://my-json-server.typicode.com/su481ns8u/AddressBookSampleDB/person").then()
+                .post("/person")
+                .then()
                 .statusCode(201)
                 .log().all();
     }
@@ -33,10 +66,19 @@ public class AddressBookTest {
         given()
                 .contentType(ContentType.JSON)
                 .accept(ContentType.JSON)
-                .body("{\"FirstName\": \"Shashank\", \"LastName\": \"Ghinmine\", \"Mobile\": \"91 9822917991\", " +
-                        "\"Address\": \"Kesha\", \"City\": \"Selu\",\"State\": \"Maha\",\"Zip\": \"465231\"}")
+                .header("Content-Type", "application/json")
+                .body("{\n" +
+                        "      \"firstName\": \"Snehal\"," +
+                        "      \"lastName\": \"Ghinmine\"," +
+                        "      \"address\": \"Nashirabad\"," +
+                        "      \"city\": \"Jalgaon\"," +
+                        "      \"state\": \"Maha\"," +
+                        "      \"zip\": \"431798\"," +
+                        "      \"phoneNumber\": \"91 8007928757\"" +
+                        "    }")
                 .when()
-                .put("https://my-json-server.typicode.com/su481ns8u/AddressBookSampleDB/person/1").then()
+                .put("/person/3")
+                .then()
                 .statusCode(200)
                 .log().all();
     }
@@ -44,7 +86,7 @@ public class AddressBookTest {
     @Test
     public void givenURLToDelete_UsingRestAssured_ShouldReturnPassingStatus() {
         when()
-                .delete("https://my-json-server.typicode.com/su481ns8u/AddressBookSampleDB/person/1")
+                .delete("/person/3")
                 .then()
                 .statusCode(200)
                 .log().all();
