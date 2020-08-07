@@ -47,7 +47,6 @@ public class AddressBookServiceJsonServerIO implements IAddressBookService {
             String state = (String) response.jsonPath().getList("state").get(0);
             String zip = (String) response.jsonPath().getList("zip").get(0);
             String phoneNumber = (String) response.jsonPath().getList("phoneNumber").get(0);
-            System.out.println(address + city + state + zip + phoneNumber);
             System.out.print("\n\tEnter edit choice" +
                     "\n\t1. Address" +
                     "\n\t2. City" +
@@ -75,7 +74,6 @@ public class AddressBookServiceJsonServerIO implements IAddressBookService {
                 default:
                     System.out.println("Wrong Choice !!!");
             }
-            System.out.println(address + city + state + zip + phoneNumber);
             given()
                     .contentType(ContentType.JSON)
                     .accept(ContentType.JSON)

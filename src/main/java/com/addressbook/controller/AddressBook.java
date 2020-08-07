@@ -1,6 +1,6 @@
 package com.addressbook.controller;
 
-import com.addressbook.services.AddressBookServiceDBIO;
+import com.addressbook.services.AddressBookServiceDataBaseIO;
 import com.addressbook.services.AddressBookServiceFileIO;
 import com.addressbook.services.AddressBookServiceJsonServerIO;
 
@@ -11,10 +11,11 @@ import static java.lang.System.exit;
 public class AddressBook {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        System.out.println("Enter Choice to select method:" +
+        System.out.print("Enter Choice to select method:" +
                 "\n1. Using File IO" +
-                "\n2.Using Json-server IO" +
-                "\n3. Using Data Base IO");
+                "\n2. Using Json-server IO" +
+                "\n3. Using Data Base IO" +
+                "\nChoice: ");
         int choice = input.nextInt();
         switch (choice) {
             case 1:
@@ -22,7 +23,7 @@ public class AddressBook {
             case 2:
                 new AddressBookServiceJsonServerIO();
             case 3:
-                new AddressBookServiceDBIO();
+                new AddressBookServiceDataBaseIO();
             default:
                 System.out.println("Invalid Choice !");
                 exit(0);
