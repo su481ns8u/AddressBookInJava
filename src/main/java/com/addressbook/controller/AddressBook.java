@@ -1,22 +1,21 @@
 package com.addressbook.controller;
 
+import com.addressbook.exceptions.AddressBookException;
 import com.addressbook.services.AddressBookServiceDataBaseIO;
 import com.addressbook.services.AddressBookServiceFileIO;
 import com.addressbook.services.AddressBookServiceJsonServerIO;
+import com.addressbook.utilities.RegExValidator;
 
-import java.util.Scanner;
-
-import static java.lang.System.exit;
+import static com.addressbook.exceptions.AddressBookException.ExceptionType.INVALID_CHOICE;
 
 public class AddressBook {
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+    public static void main(String[] args) throws AddressBookException {
         System.out.print("Enter Choice to select method:" +
                 "\n1. Using File IO" +
                 "\n2. Using Json-server IO" +
-                "\n3. Using Data Base IO" +
+                "\n3. Using mySQL DataBase IO" +
                 "\nChoice: ");
-        int choice = input.nextInt();
+        int choice = RegExValidator.input.nextInt();
         switch (choice) {
             case 1:
                 new AddressBookServiceFileIO();
@@ -25,8 +24,7 @@ public class AddressBook {
             case 3:
                 new AddressBookServiceDataBaseIO();
             default:
-                System.out.println("Invalid Choice !");
-                exit(0);
+                throw new AddressBookException(INVALID_CHOICE);
         }
     }
 }

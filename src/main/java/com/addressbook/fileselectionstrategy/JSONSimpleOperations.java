@@ -1,4 +1,4 @@
-package com.addressbook.utilities;
+package com.addressbook.fileselectionstrategy;
 
 import com.addressbook.models.Person;
 import org.json.simple.JSONArray;

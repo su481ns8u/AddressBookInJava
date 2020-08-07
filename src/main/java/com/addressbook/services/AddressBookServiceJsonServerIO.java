@@ -2,7 +2,7 @@ package com.addressbook.services;
 
 import com.addressbook.models.Person;
 import com.addressbook.utilities.AddressBookUtils;
-import com.addressbook.utilities.CheckAndReturnParameters;
+import com.addressbook.utilities.RegExValidator;
 import com.google.gson.GsonBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -14,7 +14,7 @@ import static io.restassured.RestAssured.*;
 
 public class AddressBookServiceJsonServerIO implements IAddressBookService {
     AddressBookUtils addressBookUtils = new AddressBookUtils();
-    CheckAndReturnParameters checkAndReturnParameters = new CheckAndReturnParameters();
+    RegExValidator regExValidator = new RegExValidator();
     Scanner input = new Scanner(System.in);
 
     public AddressBookServiceJsonServerIO() {
@@ -37,8 +37,8 @@ public class AddressBookServiceJsonServerIO implements IAddressBookService {
     @Override
     public void editPerson() {
         System.out.print("Enter Name to edit record: \n");
-        String firstName = checkAndReturnParameters.setNameParameters("First Name");
-        String lastName = checkAndReturnParameters.setNameParameters("Last Name");
+        String firstName = RegExValidator.setNameParameters("First Name");
+        String lastName = RegExValidator.setNameParameters("Last Name");
         if (checkExist(firstName, lastName) != 0) {
             Response response = searchByName(firstName, lastName);
             int id = (int) response.jsonPath().getList("id").get(0);
@@ -57,19 +57,19 @@ public class AddressBookServiceJsonServerIO implements IAddressBookService {
             int choice = input.nextInt();
             switch (choice) {
                 case 1:
-                    address = checkAndReturnParameters.setAddress();
+                    address = regExValidator.setAddress();
                     break;
                 case 2:
-                    city = checkAndReturnParameters.setNameParameters("City");
+                    city = RegExValidator.setNameParameters("City");
                     break;
                 case 3:
-                    state = checkAndReturnParameters.setNameParameters("State");
+                    state = RegExValidator.setNameParameters("State");
                     break;
                 case 4:
-                    zip = checkAndReturnParameters.setZip();
+                    zip = regExValidator.setZip();
                     break;
                 case 5:
-                    phoneNumber = checkAndReturnParameters.setPhoneNumber();
+                    phoneNumber = regExValidator.setPhoneNumber();
                     break;
                 default:
                     System.out.println("Wrong Choice !!!");
@@ -89,9 +89,8 @@ public class AddressBookServiceJsonServerIO implements IAddressBookService {
 
     @Override
     public void deletePerson() {
-        System.out.print("Enter Name to delete record: \n");
-        String firstName = checkAndReturnParameters.setNameParameters("First Name");
-        String lastName = checkAndReturnParameters.setNameParameters("Last Name");
+        String firstName = RegExValidator.setNameParameters("First Name");
+        String lastName = RegExValidator.setNameParameters("Last Name");
         if (checkExist(firstName, lastName) != 0) {
             Response response = searchByName(firstName, lastName);
             when().delete("/" + (int) response.jsonPath().getList("id").get(0));
@@ -100,30 +99,22 @@ public class AddressBookServiceJsonServerIO implements IAddressBookService {
     }
 
     @Override
-    public void searchByCityAndState() {
-        System.out.println("Enter city and state to search:");
-        String city = checkAndReturnParameters.setNameParameters("City");
-        String state = checkAndReturnParameters.setNameParameters("State");
+    public void searchByCityAndState(String city, String state) {
         ArrayList<Object> list = (ArrayList<Object>) responseByQuery("?city=" + city + "&?state=" + state)
                 .jsonPath().getList("$");
         list.forEach(a -> System.out.println(a.toString()));
     }
 
     @Override
-    public void searchByCityOrState() {
-        System.out.print("\tSearch By" +
-                "\n\t1. City" +
-                "\n\t2. State" +
-                "\n\tChoice:");
+    public void searchByCityOrState(int choice) {
         ArrayList<Object> list = null;
-        int choice = input.nextInt();
         switch (choice) {
             case 1:
-                list = (ArrayList<Object>) responseByQuery("?city=" + checkAndReturnParameters
+                list = (ArrayList<Object>) responseByQuery("?city=" + RegExValidator
                         .setNameParameters("City")).jsonPath().getList("$");
                 break;
             case 2:
-                list = (ArrayList<Object>) responseByQuery("?state=" + checkAndReturnParameters
+                list = (ArrayList<Object>) responseByQuery("?state=" + RegExValidator
                         .setNameParameters("State")).jsonPath().getList("$");
                 break;
             default:
@@ -134,15 +125,9 @@ public class AddressBookServiceJsonServerIO implements IAddressBookService {
     }
 
     @Override
-    public void sort() {
+    public void sort(int choice) {
         String sortString = "";
-        System.out.print("\n\t1. Name" +
-                "\n\t2. City" +
-                "\n\t3. State" +
-                "\n\t4. Zip" +
-                "\n\tChoice: ");
-        int sortParameter = input.nextInt();
-        switch (sortParameter) {
+        switch (choice) {
             case 1:
                 sortString = "?_sort=firstName,lastName&_order=asc";
                 break;

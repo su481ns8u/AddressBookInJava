@@ -5,11 +5,11 @@ import java.util.Scanner;
 /**
  * Class checks the inputs and returns proper parameters
  */
-public class CheckAndReturnParameters {
-    Scanner input = new Scanner(System.in).useDelimiter("\n");
+public class RegExValidator {
+    public static final Scanner input = new Scanner(System.in).useDelimiter("\n");
 
     /* Set named parameters like First Name, Last Name, City, State */
-    public String setNameParameters(String name) {
+    public static String setNameParameters(String name) {
         System.out.print("Enter " + name + ": ");
         String param = input.next();
         if (param.matches("^[A-Z][a-z]{2,}$")) {

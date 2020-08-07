@@ -1,4 +1,4 @@
-package com.addressbook.utilities;
+package com.addressbook.fileselectionstrategy;
 
 import com.addressbook.models.Person;
 import com.google.gson.Gson;
@@ -12,7 +12,7 @@ import java.util.LinkedList;
 
 public class GSonOperations implements OperationStrategies {
     @Override
-    public LinkedList<Person> convertToList(String filePath) throws IOException {
+    public LinkedList<Person> convertToList(String filePath) {
         LinkedList<Person> address = new LinkedList<>();
         try {
             Person[] addressBook = new Gson().fromJson(new FileReader(filePath), Person[].class);

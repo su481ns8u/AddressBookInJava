@@ -1,5 +1,6 @@
-package com.addressbook.utilities;
+package com.addressbook.fileselectionstrategy;
 
+import com.addressbook.exceptions.AddressBookException;
 import com.addressbook.models.Person;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
@@ -15,10 +16,12 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.LinkedList;
 
+import static com.addressbook.exceptions.AddressBookException.ExceptionType.FILE_IO_EXCEPTION;
+
 @SuppressWarnings("ALL")
 public class CSVOperations implements OperationStrategies {
     @Override
-    public LinkedList<Person> convertToList(String filePath) throws IOException {
+    public LinkedList<Person> convertToList(String filePath) throws AddressBookException {
         try (
                 Reader reader = Files.newBufferedReader(Paths.get(filePath));
                 CSVReader csvReader = new CSVReader(reader);
@@ -36,11 +39,13 @@ public class CSVOperations implements OperationStrategies {
                         nextPerson[4]));
             }
             return addressBook;
+        } catch (IOException e) {
+            throw new AddressBookException(FILE_IO_EXCEPTION);
         }
     }
 
     @Override
-    public void convertToFile(LinkedList<Person> addressBook, String filePath) {
+    public void convertToFile(LinkedList<Person> addressBook, String filePath) throws AddressBookException {
         try (
                 Writer writer = Files.newBufferedWriter(Paths.get(filePath));
         ) {
@@ -48,12 +53,8 @@ public class CSVOperations implements OperationStrategies {
                     .withQuotechar(CSVWriter.NO_QUOTE_CHARACTER)
                     .build();
             beanToCsv.write(addressBook);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (CsvRequiredFieldEmptyException e) {
-            e.printStackTrace();
-        } catch (CsvDataTypeMismatchException e) {
-            e.printStackTrace();
+        } catch (CsvDataTypeMismatchException | CsvRequiredFieldEmptyException | IOException e) {
+            throw new AddressBookException(FILE_IO_EXCEPTION);
         }
     }
 }

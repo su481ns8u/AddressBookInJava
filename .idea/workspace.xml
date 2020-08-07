@@ -21,12 +21,18 @@
   <component name="ChangeListManager">
     <list default="true" id="a98096a9-06f7-497c-acd5-c104b8c162bc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AddressBookNew.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AddressBookNew.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/addressbook/controller/AddressBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/addressbook/controller/AddressBook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/addressbook/services/AddressBookServiceDBIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/addressbook/services/AddressBookServiceDataBaseIO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/addressbook/dbconnection/DBConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/addressbook/dbconnection/DBConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/addressbook/services/AddressBookServiceDataBaseIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/addressbook/services/AddressBookServiceDataBaseIO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/addressbook/services/AddressBookServiceFileIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/addressbook/services/AddressBookServiceFileIO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/addressbook/services/AddressBookServiceJsonServerIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/addressbook/services/AddressBookServiceJsonServerIO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/addressbook/services/IAddressBookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/addressbook/services/IAddressBookService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/addressbook/utilities/AddressBookUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/addressbook/utilities/AddressBookUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/addressbook/utilities/CSVOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/addressbook/fileselectionstrategy/CSVOperations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/addressbook/utilities/CheckAndReturnParameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/addressbook/utilities/RegExValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/addressbook/utilities/GSonOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/addressbook/fileselectionstrategy/GSonOperations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/addressbook/utilities/JSONSimpleOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/addressbook/fileselectionstrategy/JSONSimpleOperations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/addressbook/utilities/OperationStrategies.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/addressbook/fileselectionstrategy/OperationStrategies.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,27 +62,28 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../CensusAnalyser" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../QuantityMeasurementTDDProb" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="application.passwordSafe" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\BootCamp\AddressBookNew\src\main\java\com\addressbook\jsonserver" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.addressbook.fileselectionstrategy" />
       <recent name="com.addressbook.utilities" />
       <recent name="com.su481ns8u.AddressBook.main" />
       <recent name="com.su481ns8u.AddressBook.services" />
       <recent name="com.su481ns8u.AddressBook.models" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\BootCamp\AddressBookNew\src\main\java" />
+    </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.addressbook.utilities" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\BootCamp\AddressBookNew\src\main\java" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\BootCamp\AddressBookNew\src\main\java\com\addressbook\jsonserver" />
     </key>
   </component>
   <component name="RunManager" selected="Application.AddressBook">
@@ -180,46 +187,54 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="488" y="85" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1596684153367" />
-    <state x="413" y="149" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1596156622869">
+    <state x="413" y="149" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1596774797172">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="413" y="149" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1366.738@0.0.1366.738" timestamp="1596156622869" />
+    <state x="413" y="149" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1366.738@0.0.1366.738" timestamp="1596774797172" />
     <state x="406" y="58" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1596128595675">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="406" y="58" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/0.0.1366.738@0.0.1366.738" timestamp="1596128595675" />
-    <state x="479" y="254" width="446" height="239" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1596128049920">
+    <state x="479" y="254" width="450" height="270" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1596774800359">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="479" y="254" width="446" height="239" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.738@0.0.1366.738" timestamp="1596128049920" />
+    <state x="479" y="254" width="450" height="270" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.738@0.0.1366.738" timestamp="1596774800359" />
     <state x="399" y="87" key="#com.intellij.refactoring.move.moveMembers.MoveMembersDialog" timestamp="1593228051958">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="399" y="87" key="#com.intellij.refactoring.move.moveMembers.MoveMembersDialog/0.0.1366.738@0.0.1366.738" timestamp="1593228051958" />
-    <state x="280" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1596757873174">
+    <state x="280" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1596773254383">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="280" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.738@0.0.1366.738" timestamp="1596757873174" />
-    <state x="817" y="126" key="FileChooserDialogImpl" timestamp="1596590361415">
+    <state x="280" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.738@0.0.1366.738" timestamp="1596773254383" />
+    <state x="319" y="91" key="DBNavigator.DatasetFilterDialog" timestamp="1596770976043">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="817" y="126" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1596590361415" />
-    <state width="1323" height="207" key="GridCell.Tab.0.bottom" timestamp="1596770156610">
+    <state x="319" y="91" key="DBNavigator.DatasetFilterDialog/0.0.1366.738@0.0.1366.738" timestamp="1596770976043" />
+    <state x="426" y="27" key="DBNavigator.ProjectSettingsDialog" timestamp="1596770902998">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="207" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1596770156610" />
-    <state width="1323" height="207" key="GridCell.Tab.0.center" timestamp="1596770156610">
+    <state x="426" y="27" key="DBNavigator.ProjectSettingsDialog/0.0.1366.738@0.0.1366.738" timestamp="1596770902998" />
+    <state x="817" y="126" key="FileChooserDialogImpl" timestamp="1596775658222">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="207" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1596770156610" />
-    <state width="1323" height="207" key="GridCell.Tab.0.left" timestamp="1596770156609">
+    <state x="817" y="126" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1596775658222" />
+    <state width="1323" height="207" key="GridCell.Tab.0.bottom" timestamp="1596771370042">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="207" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1596770156609" />
-    <state width="1323" height="207" key="GridCell.Tab.0.right" timestamp="1596770156610">
+    <state width="1323" height="207" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1596771370042" />
+    <state width="1323" height="207" key="GridCell.Tab.0.center" timestamp="1596771370042">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="207" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1596770156610" />
+    <state width="1323" height="207" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1596771370042" />
+    <state width="1323" height="207" key="GridCell.Tab.0.left" timestamp="1596771370042">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="207" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1596771370042" />
+    <state width="1323" height="207" key="GridCell.Tab.0.right" timestamp="1596771370042">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="207" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1596771370042" />
     <state width="1323" height="226" key="GridCell.Tab.1.bottom" timestamp="1596615491046">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -236,10 +251,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state width="1323" height="226" key="GridCell.Tab.1.right/0.0.1366.738@0.0.1366.738" timestamp="1596615491046" />
-    <state x="111" y="0" key="SettingsEditor" timestamp="1596756676848">
+    <state x="111" y="0" key="SettingsEditor" timestamp="1596770761371">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="111" y="0" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1596756676848" />
+    <state x="111" y="0" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1596770761371" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1596691368534">
       <screen x="0" y="0" width="1366" height="738" />
     </state>

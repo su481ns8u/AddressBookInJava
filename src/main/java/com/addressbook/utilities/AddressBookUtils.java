@@ -5,19 +5,19 @@ import com.addressbook.models.Person;
 import java.util.Scanner;
 
 public class AddressBookUtils {
-    public static final CheckAndReturnParameters checkAndReturnParameters = new CheckAndReturnParameters();
+    public static final RegExValidator REG_EX_VALIDATOR = new RegExValidator();
 
     public Person setName () {
-        return new Person(checkAndReturnParameters.setNameParameters("First Name"),
-                checkAndReturnParameters.setNameParameters("Last Name"));
+        return new Person(RegExValidator.setNameParameters("First Name"),
+                RegExValidator.setNameParameters("Last Name"));
     }
 
     public void setAllParameters (Person person) {
-        person.setPhoneNumber(checkAndReturnParameters.setPhoneNumber());
-        person.setAddress(checkAndReturnParameters.setAddress());
-        person.setCity(checkAndReturnParameters.setNameParameters("City"));
-        person.setState(checkAndReturnParameters.setNameParameters("State"));
-        person.setZip(checkAndReturnParameters.setZip());
+        person.setPhoneNumber(REG_EX_VALIDATOR.setPhoneNumber());
+        person.setAddress(REG_EX_VALIDATOR.setAddress());
+        person.setCity(RegExValidator.setNameParameters("City"));
+        person.setState(RegExValidator.setNameParameters("State"));
+        person.setZip(REG_EX_VALIDATOR.setZip());
     }
 
     public void editParameters (Person person) {
@@ -32,19 +32,19 @@ public class AddressBookUtils {
         int choice = scanner.nextInt();
         switch (choice) {
             case 1:
-                person.setAddress(checkAndReturnParameters.setAddress());
+                person.setAddress(REG_EX_VALIDATOR.setAddress());
                 break;
             case 2:
-                person.setCity(checkAndReturnParameters.setNameParameters("City"));
+                person.setCity(RegExValidator.setNameParameters("City"));
                 break;
             case 3:
-                person.setState(checkAndReturnParameters.setNameParameters("State"));
+                person.setState(RegExValidator.setNameParameters("State"));
                 break;
             case 4:
-                person.setZip(checkAndReturnParameters.setZip());
+                person.setZip(REG_EX_VALIDATOR.setZip());
                 break;
             case 5:
-                person.setPhoneNumber(checkAndReturnParameters.setPhoneNumber());
+                person.setPhoneNumber(REG_EX_VALIDATOR.setPhoneNumber());
                 break;
             default:
                 System.out.println("Wrong Choice !!!");

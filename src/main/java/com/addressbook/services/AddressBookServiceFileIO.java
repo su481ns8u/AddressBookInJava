@@ -1,6 +1,11 @@
 package com.addressbook.services;
 
 import com.addressbook.enums.SortParameters;
+import com.addressbook.exceptions.AddressBookException;
+import com.addressbook.fileselectionstrategy.CSVOperations;
+import com.addressbook.fileselectionstrategy.GSonOperations;
+import com.addressbook.fileselectionstrategy.JSONSimpleOperations;
+import com.addressbook.fileselectionstrategy.OperationStrategies;
 import com.addressbook.models.Person;
 import com.addressbook.utilities.*;
 
@@ -11,7 +16,6 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 import static com.addressbook.enums.SortParameters.*;
-import static com.addressbook.utilities.AddressBookUtils.checkAndReturnParameters;
 import static java.lang.System.exit;
 
 public class AddressBookServiceFileIO implements IAddressBookService {
@@ -56,10 +60,11 @@ public class AddressBookServiceFileIO implements IAddressBookService {
         }
     }
 
+    @Override
     public void addPerson() {
         try {
             this.addressBook = this.operationStrategies.convertToList(filePath);
-        } catch (IOException ignored) {
+        } catch (IOException | AddressBookException e) {
         }
         Person person = addressBookUtils.setName();
         if (this.addressBook.contains(person)) System.out.println("Record already exists cant add !!!");
@@ -67,13 +72,18 @@ public class AddressBookServiceFileIO implements IAddressBookService {
             addressBookUtils.setAllParameters(person);
             this.addressBook.add(person);
         }
-        this.operationStrategies.convertToFile(this.addressBook, filePath);
+        try {
+            this.operationStrategies.convertToFile(this.addressBook, filePath);
+        } catch (AddressBookException e) {
+            e.printStackTrace();
+        }
     }
 
+    @Override
     public void editPerson() {
         try {
             this.addressBook = this.operationStrategies.convertToList(filePath);
-        } catch (IOException ignored) {
+        } catch (IOException | AddressBookException ignored) {
         }
         System.out.print("Enter Name to edit record: \n");
         Person person = addressBookUtils.setName();
@@ -81,13 +91,18 @@ public class AddressBookServiceFileIO implements IAddressBookService {
             int index = this.addressBook.indexOf(person);
             addressBookUtils.editParameters(this.addressBook.get(index));
         } else System.out.println("Record dose not exist !!!");
-        this.operationStrategies.convertToFile(this.addressBook, this.filePath);
+        try {
+            this.operationStrategies.convertToFile(this.addressBook, this.filePath);
+        } catch (AddressBookException e) {
+            e.printStackTrace();
+        }
     }
 
+    @Override
     public void deletePerson() {
         try {
             this.addressBook = this.operationStrategies.convertToList(filePath);
-        } catch (IOException ignored) {
+        } catch (IOException | AddressBookException ignored) {
         }
         System.out.println("Enter name to delete record: ");
         Person person = addressBookUtils.setName();
@@ -95,25 +110,24 @@ public class AddressBookServiceFileIO implements IAddressBookService {
             addressBook.removeIf(personArr -> personArr.equals(person));
             System.out.println("Delete Successful !!!");
         } else System.out.println("No Record exists !!!");
-        this.operationStrategies.convertToFile(this.addressBook, this.filePath);
+        try {
+            this.operationStrategies.convertToFile(this.addressBook, this.filePath);
+        } catch (AddressBookException e) {
+            e.printStackTrace();
+        }
     }
 
     private void sortByParameter(SortParameters sortParameter) {
         addressBook.stream().sorted(sortParameter.comparator).forEach(System.out::println);
     }
 
-    public void sort() {
+    @Override
+    public void sort(int choice) {
         try {
             this.addressBook = this.operationStrategies.convertToList(filePath);
-        } catch (IOException ignored) {
+        } catch (IOException | AddressBookException ignored) {
         }
-        System.out.print("\n\t1. Name" +
-                "\n\t2. City" +
-                "\n\t3. State" +
-                "\n\t4. Zip" +
-                "\n\tChoice: ");
-        int sortParameter = input.nextInt();
-        switch (sortParameter) {
+        switch (choice) {
             case 1:
                 this.sortByParameter(NAME);
                 break;
@@ -132,15 +146,12 @@ public class AddressBookServiceFileIO implements IAddressBookService {
         }
     }
 
-    public void searchByCityAndState() {
+    @Override
+    public void searchByCityAndState(String city, String state) {
         try {
             this.addressBook = this.operationStrategies.convertToList(filePath);
-        } catch (IOException ignored) {
+        } catch (IOException | AddressBookException ignored) {
         }
-        System.out.println("Enter name to delete record: ");
-        System.out.print("Enter city and state to search: ");
-        String city = checkAndReturnParameters.setNameParameters("City");
-        String state = checkAndReturnParameters.setNameParameters("State");
         List<Person> sampleAddressBook = this.addressBook.stream().filter
                 (person -> person.getState().equals(state) && person.getCity().equals(city))
                 .collect(Collectors.toList());
@@ -148,31 +159,28 @@ public class AddressBookServiceFileIO implements IAddressBookService {
         else sampleAddressBook.forEach(System.out::println);
     }
 
-    public void searchByCityOrState() {
+    @Override
+    public void searchByCityOrState(int choice) {
         List<Person> sampleAddressBook = null;
         try {
             this.addressBook = this.operationStrategies.convertToList(filePath);
-        } catch (IOException ignored) {
+        } catch (IOException | AddressBookException ignored) {
         }
-        System.out.print("\tSearch By" +
-                "\n\t1. City" +
-                "\n\t2. Zip" +
-                "\n\tChoice:");
-        Scanner input = new Scanner(System.in);
-        int choice = input.nextInt();
         switch (choice) {
             case 1:
-                String city = checkAndReturnParameters.setNameParameters("City");
+                String city = RegExValidator.setNameParameters("City");
                 sampleAddressBook = addressBook.stream()
                         .filter(person -> person.getCity().equals(city))
                         .collect(Collectors.toList());
                 break;
             case 2:
-                String state = checkAndReturnParameters.setNameParameters("State");
+                String state = RegExValidator.setNameParameters("State");
                 sampleAddressBook = addressBook.stream()
                         .filter(person -> person.getState().equals(state))
                         .collect(Collectors.toList());
                 break;
+            default:
+                System.out.println("Invalid Choice !!!");
         }
         if (sampleAddressBook == null) System.out.println("No such city or state in Address Book !!!");
         else sampleAddressBook.forEach(System.out::println);
@@ -182,7 +190,7 @@ public class AddressBookServiceFileIO implements IAddressBookService {
     public void displayRecords() {
         try {
             this.addressBook = this.operationStrategies.convertToList(filePath);
-        } catch (IOException ignored) {
+        } catch (IOException | AddressBookException ignored) {
         }
         this.addressBook.forEach(System.out::println);
     }

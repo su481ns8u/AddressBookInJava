@@ -1,7 +1,8 @@
 package com.addressbook.services;
 
 import com.addressbook.dbconnection.DBConnection;
-import com.addressbook.utilities.CheckAndReturnParameters;
+import com.addressbook.exceptions.AddressBookException;
+import com.addressbook.utilities.RegExValidator;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,7 +11,7 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 public class AddressBookServiceDataBaseIO implements IAddressBookService {
-    CheckAndReturnParameters checkAndReturnParameters = new CheckAndReturnParameters();
+    RegExValidator regExValidator = new RegExValidator();
     Scanner input = new Scanner(System.in);
 
     public AddressBookServiceDataBaseIO() {
@@ -22,24 +23,24 @@ public class AddressBookServiceDataBaseIO implements IAddressBookService {
         String query = "INSERT INTO `address_book`.`person`" +
                 "(`firstName`,`lastName`,`address`,`city`,`state`,`zip`,`mobile`)" +
                 "VALUES(?,?,?,?,?,?,?);";
-        String firstName = checkAndReturnParameters.setNameParameters("First Name");
-        String lastName = checkAndReturnParameters.setNameParameters("Last Name");
+        String firstName = RegExValidator.setNameParameters("First Name");
+        String lastName = RegExValidator.setNameParameters("Last Name");
         try {
             Connection connection = DBConnection.getConnection();
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setString(1, firstName);
             statement.setString(2, lastName);
             if (!checkExist(firstName, lastName, connection)) {
-                statement.setString(3, checkAndReturnParameters.setAddress());
-                statement.setString(4, checkAndReturnParameters.setNameParameters("City"));
-                statement.setString(5, checkAndReturnParameters.setNameParameters("State"));
-                statement.setString(6, checkAndReturnParameters.setZip());
-                statement.setString(7, checkAndReturnParameters.setPhoneNumber());
+                statement.setString(3, regExValidator.setAddress());
+                statement.setString(4, RegExValidator.setNameParameters("City"));
+                statement.setString(5, RegExValidator.setNameParameters("State"));
+                statement.setString(6, regExValidator.setZip());
+                statement.setString(7, regExValidator.setPhoneNumber());
                 statement.execute();
             } else System.out.println("Record already exists !!!");
             statement.close();
             connection.close();
-        } catch (SQLException throwables) {
+        } catch (SQLException | AddressBookException throwables) {
             throwables.printStackTrace();
         }
     }
@@ -48,8 +49,8 @@ public class AddressBookServiceDataBaseIO implements IAddressBookService {
     public void editPerson() {
         try {
             Connection connection = DBConnection.getConnection();
-            String firstName = checkAndReturnParameters.setNameParameters("First Name");
-            String lastName = checkAndReturnParameters.setNameParameters("Last Name");
+            String firstName = RegExValidator.setNameParameters("First Name");
+            String lastName = RegExValidator.setNameParameters("Last Name");
             if (checkExist(firstName, lastName, connection)) {
                 String field = null;
                 String value = null;
@@ -64,23 +65,23 @@ public class AddressBookServiceDataBaseIO implements IAddressBookService {
                 switch (choice) {
                     case 1:
                         field = "address";
-                        value = checkAndReturnParameters.setAddress();
+                        value = regExValidator.setAddress();
                         break;
                     case 2:
                         field = "city";
-                        value = checkAndReturnParameters.setNameParameters("City");
+                        value = RegExValidator.setNameParameters("City");
                         break;
                     case 3:
                         field = "state";
-                        value = checkAndReturnParameters.setNameParameters("State");
+                        value = RegExValidator.setNameParameters("State");
                         break;
                     case 4:
                         field = "zip";
-                        value = checkAndReturnParameters.setZip();
+                        value = regExValidator.setZip();
                         break;
                     case 5:
                         field = "mobile";
-                        value = checkAndReturnParameters.setPhoneNumber();
+                        value = regExValidator.setPhoneNumber();
                         break;
                     default:
                         System.out.println("Wrong Choice !!!");
@@ -89,7 +90,7 @@ public class AddressBookServiceDataBaseIO implements IAddressBookService {
                         "WHERE firstName = '" + firstName + "' AND lastName ='" + lastName + "';").executeUpdate();
             } else System.out.println("Person Does Not Exist !!!");
             connection.close();
-        } catch (SQLException throwables) {
+        } catch (SQLException | AddressBookException throwables) {
             throwables.printStackTrace();
         }
     }
@@ -98,9 +99,8 @@ public class AddressBookServiceDataBaseIO implements IAddressBookService {
     public void deletePerson() {
         try {
             Connection connection = DBConnection.getConnection();
-            System.out.println("Enter Name to delete record:");
-            String firstName = checkAndReturnParameters.setNameParameters("First Name");
-            String lastName = checkAndReturnParameters.setNameParameters("Last Name");
+            String firstName = RegExValidator.setNameParameters("First Name");
+            String lastName = RegExValidator.setNameParameters("Last Name");
             if (checkExist(firstName, lastName, connection)) {
                 connection.prepareStatement("DELETE FROM address_book.person WHERE " +
                         "firstName = '" + firstName + "' AND lastName = '" + lastName + "';")
@@ -108,35 +108,29 @@ public class AddressBookServiceDataBaseIO implements IAddressBookService {
                 System.out.println("Deletion Successful !!!");
             } else System.out.println("No such record found !!!");
             connection.close();
-        } catch (SQLException throwables) {
+        } catch (SQLException | AddressBookException throwables) {
             throwables.printStackTrace();
         }
     }
 
     @Override
-    public void searchByCityAndState() {
-        System.out.println("Enter city and state to search:");
+    public void searchByCityAndState(String city, String state) {
         this.setQueryAndPrint("SELECT * FROM address_book.person " +
-                "WHERE city = '" + checkAndReturnParameters.setNameParameters("City") +
-                "' AND state = '" + checkAndReturnParameters.setNameParameters("State") + "';");
+                "WHERE city = '" + city + "' AND state = '" + state + "';");
     }
 
     @Override
-    public void searchByCityOrState() {
-        System.out.println("Enter choice to search by" +
-                "\n1. City" +
-                "\n2. State");
+    public void searchByCityOrState(int choice) {
         String key = null;
         String value = null;
-        int choice = input.nextInt();
         switch (choice) {
             case 1:
                 key = "city";
-                value = checkAndReturnParameters.setNameParameters("City");
+                value = RegExValidator.setNameParameters("City");
                 break;
             case 2:
                 key = "state";
-                value = checkAndReturnParameters.setNameParameters("State");
+                value = RegExValidator.setNameParameters("State");
                 break;
             default:
                 System.out.println("Wrong choice !!!");
@@ -145,15 +139,9 @@ public class AddressBookServiceDataBaseIO implements IAddressBookService {
     }
 
     @Override
-    public void sort() {
-        System.out.print("\n\t1. Name" +
-                "\n\t2. City" +
-                "\n\t3. State" +
-                "\n\t4. Zip" +
-                "\n\tChoice: ");
-        int sortParameter = input.nextInt();
+    public void sort(int choice) {
         String sortColumn = null;
-        switch (sortParameter) {
+        switch (choice) {
             case 1:
                 sortColumn = "firstName & lastName";
                 break;
@@ -191,21 +179,20 @@ public class AddressBookServiceDataBaseIO implements IAddressBookService {
                     ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY).executeQuery();
             int rows = 0;
             if (resultSet.last()) {
-                 rows = resultSet.getRow();
+                rows = resultSet.getRow();
                 resultSet.beforeFirst();
             }
-            if (rows != 0) {
-                while (resultSet.next())
-                    System.out.println("\nFirst Name: " + resultSet.getString("firstName") +
-                            " Last Name: " + resultSet.getString("lastName") +
-                            "\nAddress: " + resultSet.getString("address") +
-                            " City: " + resultSet.getString("city") +
-                            " State: " + resultSet.getString("state") +
-                            "\nZip: " + resultSet.getString("zip") +
-                            " Mobile No.: " + resultSet.getString("mobile"));
-            } else System.out.println("No such records exist !!!");
+            if (rows != 0) while (resultSet.next())
+                System.out.println("\nFirst Name: " + resultSet.getString("firstName") +
+                        " Last Name: " + resultSet.getString("lastName") +
+                        "\nAddress: " + resultSet.getString("address") +
+                        " City: " + resultSet.getString("city") +
+                        " State: " + resultSet.getString("state") +
+                        "\nZip: " + resultSet.getString("zip") +
+                        " Mobile No.: " + resultSet.getString("mobile"));
+            else System.out.println("No such records exist !!!");
             connection.close();
-        } catch (SQLException throwables) {
+        } catch (SQLException | AddressBookException throwables) {
             throwables.printStackTrace();
         }
     }
