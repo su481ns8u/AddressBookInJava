@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Address Book
+    </title>
+    <link rel="stylesheet" type="text/css" href="Navbar.css" />
+    <link rel="stylesheet" type="text/css" href="Form.css" />
+  </head>
+
+  <body>
+    <div class="navbar">
+      <a href="Home.html">Add</a>
+      <a href="Delete.html">Delete</a>
+      <a href="Update.html" class="active">Update</a>
+      <div class="dropdown">
+        <button class="dropbtn">
+          Search
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="#">City</a>
+          <a href="#">State</a>
+          <a href="#">City and State</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">
+          Sort
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="#">Name</a>
+          <a href="#">City</a>
+          <a href="#">State</a>
+          <a href="#">Zip</a>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <form action="#">
+        <div class="row">
+          <div class="col-25">
+            <label for="fname">First Name</label>
+          </div>
+          <div class="col-75">
+            <input type="text" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="lname">Last Name</label>
+          </div>
+          <div class="col-75">
+            <input type="text" />
+          </div>
+        </div>
+        <div class="row">
+          <input type="submit" value="Submit" />
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
