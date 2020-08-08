@@ -21,18 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a98096a9-06f7-497c-acd5-c104b8c162bc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/addressbook/controller/AddressBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/addressbook/controller/AddressBook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/addressbook/dbconnection/DBConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/addressbook/dbconnection/DBConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressBook.json" beforeDir="false" afterPath="$PROJECT_DIR$/addressBook.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/addressbook/services/AddressBookServiceDataBaseIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/addressbook/services/AddressBookServiceDataBaseIO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/addressbook/services/AddressBookServiceFileIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/addressbook/services/AddressBookServiceFileIO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/addressbook/services/AddressBookServiceJsonServerIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/addressbook/services/AddressBookServiceJsonServerIO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/addressbook/services/IAddressBookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/addressbook/services/IAddressBookService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/addressbook/utilities/AddressBookUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/addressbook/utilities/AddressBookUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/addressbook/utilities/CSVOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/addressbook/fileselectionstrategy/CSVOperations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/addressbook/utilities/CheckAndReturnParameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/addressbook/utilities/RegExValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/addressbook/utilities/GSonOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/addressbook/fileselectionstrategy/GSonOperations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/addressbook/utilities/JSONSimpleOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/addressbook/fileselectionstrategy/JSONSimpleOperations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/addressbook/utilities/OperationStrategies.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/addressbook/fileselectionstrategy/OperationStrategies.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -219,22 +209,22 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="817" y="126" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1596775658222" />
-    <state width="1323" height="207" key="GridCell.Tab.0.bottom" timestamp="1596771370042">
+    <state width="1323" height="539" key="GridCell.Tab.0.bottom" timestamp="1596787152466">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="207" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1596771370042" />
-    <state width="1323" height="207" key="GridCell.Tab.0.center" timestamp="1596771370042">
+    <state width="1323" height="539" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1596787152466" />
+    <state width="1323" height="539" key="GridCell.Tab.0.center" timestamp="1596787152466">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="207" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1596771370042" />
-    <state width="1323" height="207" key="GridCell.Tab.0.left" timestamp="1596771370042">
+    <state width="1323" height="539" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1596787152466" />
+    <state width="1323" height="539" key="GridCell.Tab.0.left" timestamp="1596787152466">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="207" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1596771370042" />
-    <state width="1323" height="207" key="GridCell.Tab.0.right" timestamp="1596771370042">
+    <state width="1323" height="539" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1596787152466" />
+    <state width="1323" height="539" key="GridCell.Tab.0.right" timestamp="1596787152466">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="207" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1596771370042" />
+    <state width="1323" height="539" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1596787152466" />
     <state width="1323" height="226" key="GridCell.Tab.1.bottom" timestamp="1596615491046">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -255,10 +245,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="111" y="0" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1596770761371" />
-    <state width="498" height="446" key="SwitcherDM" timestamp="1596691368534">
+    <state width="498" height="446" key="SwitcherDM" timestamp="1596779031848">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="498" height="446" key="SwitcherDM/0.0.1366.738@0.0.1366.738" timestamp="1596691368534" />
+    <state width="498" height="446" key="SwitcherDM/0.0.1366.738@0.0.1366.738" timestamp="1596779031848" />
     <state x="379" y="193" key="com.intellij.ide.util.TipDialog" timestamp="1593748652194">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -275,10 +265,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="478" y="116" key="refactoring.ChangeSignatureDialog/0.0.1366.738@0.0.1366.738" timestamp="1596512176306" />
-    <state x="339" y="165" width="672" height="677" key="run.anything.popup" timestamp="1596756643589">
+    <state x="339" y="165" width="672" height="677" key="run.anything.popup" timestamp="1596779071146">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="339" y="165" width="672" height="677" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1596756643589" />
+    <state x="339" y="165" width="672" height="677" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1596779071146" />
     <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1596756848701">
       <screen x="0" y="0" width="1366" height="738" />
     </state>

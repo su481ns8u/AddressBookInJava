@@ -40,8 +40,8 @@ public class AddressBookServiceDataBaseIO implements IAddressBookService {
             } else System.out.println("Record already exists !!!");
             statement.close();
             connection.close();
-        } catch (SQLException | AddressBookException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException | AddressBookException e) {
+            e.printStackTrace();
         }
     }
 
@@ -90,8 +90,8 @@ public class AddressBookServiceDataBaseIO implements IAddressBookService {
                         "WHERE firstName = '" + firstName + "' AND lastName ='" + lastName + "';").executeUpdate();
             } else System.out.println("Person Does Not Exist !!!");
             connection.close();
-        } catch (SQLException | AddressBookException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException | AddressBookException e) {
+            e.printStackTrace();
         }
     }
 
@@ -108,8 +108,8 @@ public class AddressBookServiceDataBaseIO implements IAddressBookService {
                 System.out.println("Deletion Successful !!!");
             } else System.out.println("No such record found !!!");
             connection.close();
-        } catch (SQLException | AddressBookException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException | AddressBookException e) {
+            e.printStackTrace();
         }
     }
 
@@ -192,8 +192,8 @@ public class AddressBookServiceDataBaseIO implements IAddressBookService {
                         " Mobile No.: " + resultSet.getString("mobile"));
             else System.out.println("No such records exist !!!");
             connection.close();
-        } catch (SQLException | AddressBookException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException | AddressBookException e) {
+            e.printStackTrace();
         }
     }
 }
